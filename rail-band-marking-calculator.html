@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rail Band Marking Calculator</title>
+<style>
+  :root{
+    --paper:#FAFAFA;
+    --card:#FFFFFF;
+    --ink:#16181B;
+    --ink-2:#53565C;
+    --mid:#8A8D93;
+    --line:#16181B;
+    --rule:rgba(22,24,27,.10);
+    --rule-strong:rgba(22,24,27,.20);
+    --accent:#B5560F;
+    --rule-accent:rgba(181,86,15,.07);
+    --c-secondary:#158A5D;
+    --c-primary:#2A5FD6;
+    --c-mark:#D6432E;
+    --c-tuck:#7C3AED;
+    --c-tuck1:#C2578F;
+    --display:-apple-system,BlinkMacSystemFont,"Segoe UI",ui-sans-serif,Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --radius:3px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#0C0D0F;
+      --card:#16181B;
+      --ink:#F4F5F6;
+      --ink-2:#B7BAC0;
+      --mid:#75787E;
+      --line:#F4F5F6;
+      --rule:rgba(244,245,246,.10);
+      --rule-strong:rgba(244,245,246,.22);
+      --accent:#E08A46;
+      --rule-accent:rgba(224,138,70,.10);
+      --c-secondary:#3FBE8B;
+      --c-primary:#7098F5;
+      --c-mark:#F0695A;
+      --c-tuck:#B389F0;
+      --c-tuck1:#E38AB6;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0C0D0F;--card:#16181B;--ink:#F4F5F6;--ink-2:#B7BAC0;--mid:#75787E;--line:#F4F5F6;
+    --rule:rgba(244,245,246,.10);--rule-strong:rgba(244,245,246,.22);--accent:#E08A46;--rule-accent:rgba(224,138,70,.10);
+    --c-secondary:#3FBE8B;--c-primary:#7098F5;--c-mark:#F0695A;--c-tuck:#B389F0;--c-tuck1:#E38AB6;
+  }
+  :root[data-theme="light"]{
+    --paper:#FAFAFA;--card:#FFFFFF;--ink:#16181B;--ink-2:#53565C;--mid:#8A8D93;--line:#16181B;
+    --rule:rgba(22,24,27,.10);--rule-strong:rgba(22,24,27,.20);--accent:#B5560F;--rule-accent:rgba(181,86,15,.07);
+    --c-secondary:#158A5D;--c-primary:#2A5FD6;--c-mark:#D6432E;--c-tuck:#7C3AED;--c-tuck1:#C2578F;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;font-family:var(--display);color:var(--ink);background:var(--paper);line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px 90px}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  header.site{padding:44px 0 20px;border-bottom:1px solid var(--rule-strong)}
+  .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 12px}
+  h1.title{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:clamp(30px,5.2vw,50px);text-wrap:balance}
+  .lede{margin:12px 0 0;max-width:60ch;color:var(--ink-2);font-size:15.5px}
+
+  .intro{margin:24px 0 0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .intro-card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:16px 18px}
+  .intro-card h3{margin:0 0 6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .intro-card p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.55}
+  .intro-card b{color:var(--ink);font-weight:600}
+
+  .tool-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:34px 0 0;flex-wrap:wrap}
+  h2.section{margin:0;font-weight:700;letter-spacing:-.01em;font-size:clamp(19px,2.6vw,24px)}
+  .section-sub{margin:5px 0 0;color:var(--mid);font-size:13px;max-width:56ch}
+
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .printbtn{
+    font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.04em;cursor:pointer;
+    white-space:nowrap;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);padding:11px 16px;line-height:1}
+  .printbtn:hover{background:#943f07}
+  .units{display:flex;align-items:center;gap:9px}
+  .units-lab{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);font-weight:600}
+  .seg{display:flex;border:1px solid var(--rule-strong);border-radius:var(--radius);overflow:hidden}
+  .seg button{flex:1;font-family:var(--display);font-size:11.5px;font-weight:600;letter-spacing:.02em;
+    background:transparent;color:var(--ink-2);border:none;border-left:1px solid var(--rule-strong);padding:10px 14px;cursor:pointer;line-height:1}
+  .seg button:first-child{border-left:none}
+  .seg button.on{background:var(--ink);color:var(--paper)}
+
+  .controls{margin:20px 0 0;background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:20px 22px;display:grid;gap:22px;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .ctrl label{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);font-weight:600;margin:0 0 10px}
+  .ctrl .readout{font-family:var(--mono);font-weight:600;color:var(--accent);margin-left:6px}
+  .ctrl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--rule-strong);border-radius:2px;outline-offset:6px;cursor:pointer}
+  .ctrl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;
+    background:var(--ink);border:2.5px solid var(--card);box-shadow:0 0 0 1px var(--rule-strong);cursor:pointer}
+  .ctrl input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--ink);border:2.5px solid var(--card);
+    box-shadow:0 0 0 1px var(--rule-strong);cursor:pointer}
+  .minmax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--mid);margin-top:7px}
+
+  .spec{margin:20px 0 4px;font-family:var(--mono);font-size:12.5px;color:var(--ink);border-left:2px solid var(--accent);
+    padding:8px 0 8px 14px;background:var(--rule-accent)}
+  .spec b{color:var(--accent);font-weight:700}
+
+  .keywrap{margin:28px 0 0;background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:20px}
+  .keywrap h3{margin:0 0 4px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600}
+  .keywrap .cap{margin:2px 0 14px;font-size:12.5px;color:var(--mid);max-width:72ch}
+  .key-svg{display:block;width:100%;max-width:706px;height:auto;margin:0 auto}
+  .keylegend{margin:16px 0 0;display:grid;gap:6px 26px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .keylegend div{display:flex;align-items:baseline;gap:8px;font-size:12px;color:var(--ink-2)}
+  .sw{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none;transform:translateY(1px)}
+  .sw.dash{width:13px;height:3px;border-radius:0;background:none!important;
+    background-image:repeating-linear-gradient(to right,var(--c-mark) 0 3px,transparent 3px 5.5px)!important}
+  .keylegend b{color:var(--ink);font-weight:600}
+
+  .loc-block{margin:28px 0 0}
+  .loc-block > summary{list-style:none;cursor:pointer}
+  .loc-block > summary::-webkit-details-marker{display:none}
+  .loc-head{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule-strong);padding-bottom:8px;flex-wrap:wrap}
+  .loc-head .chevron{display:inline-block;font-size:11px;color:var(--mid);transition:transform .15s ease}
+  .loc-block[open] > summary .chevron{transform:rotate(90deg)}
+  .loc-title{font-size:16px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .loc-meta{font-family:var(--mono);font-size:11.5px;color:var(--accent);font-weight:600}
+  .grid-rails{margin:14px 0 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(226px,1fr))}
+  .grid-divider{grid-column:1/-1;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);
+    padding-top:10px;margin-top:2px;border-top:1px dashed var(--rule-strong)}
+  .grid-divider:first-child{border-top:none;padding-top:0;margin-top:0}
+  .rail-card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:13px 13px 11px;display:flex;flex-direction:column}
+  .rail-fam{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;height:12px}
+  .rail-name{font-size:13.5px;font-weight:700;letter-spacing:-.005em;line-height:1.3;margin:2px 0 6px;height:35px;overflow:hidden}
+  .rail-blurb{font-size:11.5px;color:var(--mid);line-height:1.4;margin:0 0 10px;height:47px;overflow:hidden;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+  .rail-svg{display:block;margin:2px auto 10px;flex:none}
+  .rail-svg .rl{fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .rail-svg .rl.ref{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:2 3}
+  .rail-svg .rl.tuck1{stroke:var(--c-tuck1);stroke-width:2}
+  .rail-svg .rl.tuck2{stroke:var(--c-tuck);stroke-width:2}
+  .rail-svg .rl.mark{stroke:var(--c-mark);stroke-width:2}
+  .rail-svg .rl.primary{stroke:var(--c-primary);stroke-width:2}
+  .rail-svg .rl.secondary{stroke:var(--c-secondary);stroke-width:2}
+  .rail-svg .rl.tertiary{stroke:var(--accent);stroke-width:2}
+  .rail-svg .rm{stroke:var(--card);stroke-width:1}
+  .rail-svg .rm.tuck1{fill:var(--c-tuck1)}
+  .rail-svg .rm.tuck2{fill:var(--c-tuck)}
+  .rail-svg .rm.apex{fill:var(--c-mark)}
+  .rail-svg .rm.primary{fill:var(--c-primary)}
+  .rail-svg .rm.secondary{fill:var(--c-secondary)}
+  .rail-svg .rm.tertiary{fill:var(--accent)}
+  .rail-svg .pk-dash{stroke:var(--c-mark);stroke-width:1.5;stroke-dasharray:2.5 2.2}
+  .rail-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:auto;font-family:var(--mono);border-radius:var(--radius);overflow:hidden}
+  .rail-stats div{background:var(--card);padding:6px 3px;text-align:center}
+  .rail-stats .lab{font-size:8px;letter-spacing:.02em;color:var(--mid);text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:3px}
+  .rail-stats .val{font-size:11px;font-weight:700;color:var(--ink);margin-top:2px;font-variant-numeric:tabular-nums}
+  .rail-stats .sw{width:8px;height:8px}
+  .rail-stats .sw.dash{width:10px;height:2.5px;border-radius:0;background:none!important;
+    background-image:repeating-linear-gradient(to right,var(--c-mark) 0 2.2px,transparent 2.2px 4px)!important}
+
+  footer.notes{margin:44px 0 0;border-top:1px solid var(--rule-strong);padding-top:18px;font-size:12px;color:var(--mid);max-width:80ch}
+  footer.notes h3{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 8px;font-weight:600}
+  footer.notes p{margin:0 0 10px}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  @media print{
+    body{background:#fff!important;color:#000}
+    .wrap{max-width:none;padding:0}
+    .noprint{display:none!important}
+    header.site{padding:0 0 8px;border-color:#000}
+    h1.title{font-size:26px}
+    .rail-card,.loc-block,.keywrap,.intro-card{break-inside:avoid}
+    .rail-card,.controls,.spec,.keywrap,.intro-card{border-color:#000}
+    .grid-rails{gap:8px;grid-template-columns:repeat(4,1fr)}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <p class="eyebrow">Surfboard shaping reference &middot; for the backyard shaper</p>
+    <h1 class="title">Rail Band Marking Calculator</h1>
+    <p class="lede">Dial in your blank's thickness at the nose, center and tail, then read off the peak, tuck and band dimensions for ten common rail families — from a first foam job to your fiftieth.</p>
+  </header>
+
+  <div class="intro">
+    <div class="intro-card">
+      <h3>How to use it</h3>
+      <p>Drag the three sliders to your blank's thickness at the nose, center and tail (or read them straight off calipers). Switch units any time — every card below updates instantly for all ten rail families, at all three stations, so you can compare shapes before you cut foam.</p>
+    </div>
+    <div class="intro-card">
+      <h3>What the results mean</h3>
+      <p>Each card is one rail family's cross-section. The <b style="color:var(--c-mark)">apex</b> dot is where the deck bands begin, measured up from the bottom; the dashed <b style="color:var(--c-mark)">peak</b> sits mid-way up that same mark line, since that's where the finished, blended rail actually ends up widest, not at the raw corner. <b style="color:var(--c-tuck1)">Tuck&nbsp;1</b> and <b style="color:var(--c-tuck)">Tuck&nbsp;2</b> are the two bottom-corner cuts; <b style="color:var(--c-primary)">Band&nbsp;1</b>, <b style="color:var(--c-secondary)">Band&nbsp;2</b> (and Band 3, on down rails) are the flat planes carrying the apex up to the deck. Dimensions live in the data box below each plot. Mark each point with a story stick, connect the dots, then blend with a planer or surform.</p>
+    </div>
+  </div>
+
+  <div class="tool-head">
+    <div>
+      <h2 class="section">Set your blank</h2>
+      <p class="section-sub">Thickness at each station, in inches. Bands scale from a 2½&Prime; reference board; the peak scales directly with your actual thickness.</p>
+    </div>
+    <div class="btnrow noprint">
+      <div class="units">
+        <span class="units-lab">Units</span>
+        <div class="seg" id="units" role="group" aria-label="Units">
+          <button type="button" data-val="in" class="on">Inch</button>
+          <button type="button" data-val="cm">cm</button>
+        </div>
+      </div>
+      <button class="printbtn" type="button" onclick="window.print()">Print results</button>
+    </div>
+  </div>
+
+  <div class="controls noprint">
+    <div class="ctrl">
+      <label for="tn">Nose thickness <span class="readout" id="tn-out"></span></label>
+      <input type="range" id="tn" min="1" max="3.5" step="0.0625" value="1.75">
+      <div class="minmax"><span class="mm-lo">1&Prime;</span><span class="mm-hi">3&frac12;&Prime;</span></div>
+    </div>
+    <div class="ctrl">
+      <label for="tc">Center thickness <span class="readout" id="tc-out"></span></label>
+      <input type="range" id="tc" min="1" max="3.5" step="0.0625" value="2.5">
+      <div class="minmax"><span class="mm-lo">1&Prime;</span><span class="mm-hi">3&frac12;&Prime;</span></div>
+    </div>
+    <div class="ctrl">
+      <label for="tt">Tail thickness <span class="readout" id="tt-out"></span></label>
+      <input type="range" id="tt" min="1" max="3.5" step="0.0625" value="1.625">
+      <div class="minmax"><span class="mm-lo">1&Prime;</span><span class="mm-hi">3&frac12;&Prime;</span></div>
+    </div>
+  </div>
+
+  <p class="spec" id="rail-spec"></p>
+
+  <div class="keywrap">
+    <h3>How to read a card</h3>
+    <p class="cap">Every plot below follows this key. Each dot is colored to match its cut; the peak carries a short dash instead of a dot. Numbers live in the data box under each plot — connect the dots on your blank and follow the flow of the foil into the nose and tail.</p>
+    <svg class="key-svg" viewBox="0 0 706 300" role="img" aria-label="Diagram key: band 2, band 1, apex, rail peak, and the two tuck cuts on a blank's rail">
+      <defs>
+        <marker id="ah-s" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--c-secondary)"/></marker>
+        <marker id="ah-p" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--c-primary)"/></marker>
+      </defs>
+
+      <path d="M60,40 Q14,150 60,260" fill="none" stroke="var(--mid)" stroke-width="1.25"/>
+      <line x1="60" y1="40" x2="580" y2="40" stroke="var(--mid)" stroke-width="1" stroke-dasharray="2 4"/>
+      <line x1="60" y1="260" x2="580" y2="260" stroke="var(--mid)" stroke-width="1" stroke-dasharray="2 4"/>
+      <text x="64" y="34" font-family="var(--mono)" font-size="10" fill="var(--mid)" letter-spacing="1">DECK</text>
+      <text x="64" y="277" font-family="var(--mono)" font-size="10" fill="var(--mid)" letter-spacing="1">BOTTOM</text>
+
+      <!-- Band 1 runs apex → deck directly; Band 2 branches from Band 1's own midpoint out to a further deck point -->
+      <line x1="560" y1="150" x2="380" y2="40" stroke="var(--c-primary)" stroke-width="2"/>
+      <line x1="470" y1="95" x2="250" y2="40" stroke="var(--c-secondary)" stroke-width="2"/>
+      <line x1="560" y1="150" x2="560" y2="225" stroke="var(--c-mark)" stroke-width="2"/>
+      <!-- Tuck 1 runs edge → bottom; Tuck 2 branches from Tuck 1's own midpoint out to the full tuck depth -->
+      <line x1="560" y1="225" x2="542" y2="260" stroke="var(--c-tuck1)" stroke-width="2"/>
+      <line x1="551" y1="242.5" x2="524" y2="260" stroke="var(--c-tuck)" stroke-width="2"/>
+
+      <circle cx="380" cy="40" r="3" fill="var(--c-primary)"/>
+      <circle cx="250" cy="40" r="3" fill="var(--c-secondary)"/>
+      <circle cx="560" cy="150" r="3" fill="var(--c-mark)"/>
+      <circle cx="542" cy="260" r="3" fill="var(--c-tuck1)"/>
+      <circle cx="524" cy="260" r="3" fill="var(--c-tuck)"/>
+      <line x1="566" y1="187.5" x2="586" y2="187.5" stroke="var(--c-mark)" stroke-width="1.5" stroke-dasharray="2.5 2.2"/>
+
+      <line x1="360" y1="30" x2="360" y2="58" stroke="var(--c-secondary)" stroke-width="1.5" marker-end="url(#ah-s)"/>
+      <text x="360" y="20" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="11" letter-spacing=".03em" fill="var(--c-secondary)">BAND 2</text>
+
+      <line x1="495" y1="30" x2="495" y2="100" stroke="var(--c-primary)" stroke-width="1.5" marker-end="url(#ah-p)"/>
+      <text x="495" y="20" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="11" letter-spacing=".03em" fill="var(--c-primary)">BAND 1</text>
+
+      <line x1="568" y1="150" x2="582" y2="150" stroke="var(--c-mark)" stroke-width="1.5"/>
+      <text x="587" y="154" font-family="var(--display)" font-weight="600" font-size="11" letter-spacing=".03em" fill="var(--c-mark)">APEX</text>
+
+      <text x="589" y="191" font-family="var(--display)" font-weight="600" font-size="11" letter-spacing=".03em" fill="var(--c-mark)">PEAK</text>
+
+      <line x1="542" y1="264" x2="542" y2="278" stroke="var(--c-tuck1)" stroke-width="1.25"/>
+      <line x1="524" y1="264" x2="524" y2="278" stroke="var(--c-tuck)" stroke-width="1.25"/>
+      <text x="546" y="288" text-anchor="start" font-family="var(--display)" font-weight="600" font-size="10.5" letter-spacing=".03em" fill="var(--c-tuck1)">TUCK 1</text>
+      <text x="520" y="288" text-anchor="end" font-family="var(--display)" font-weight="600" font-size="10.5" letter-spacing=".03em" fill="var(--c-tuck)">TUCK 2</text>
+    </svg>
+    <div class="keylegend">
+      <div><span class="sw" style="background:var(--c-mark)"></span><span><b>Apex</b> &mdash; dot; where Band 1 begins, measured up from the bottom</span></div>
+      <div><span class="sw dash"></span><span><b>Rail peak</b> &mdash; dash at the mark line's midpoint; the finished rail's true widest point</span></div>
+      <div><span class="sw" style="background:var(--c-tuck1)"></span><span><b>Tuck 1</b> &mdash; first cut: full tuck height on the edge, half the depth in along the bottom</span></div>
+      <div><span class="sw" style="background:var(--c-tuck)"></span><span><b>Tuck 2</b> &mdash; second cut, continuing from Tuck 1's midpoint out to the full tuck depth</span></div>
+      <div><span class="sw" style="background:var(--c-primary)"></span><span><b>Band 1</b> &mdash; flat plane, apex to first deck point</span></div>
+      <div><span class="sw" style="background:var(--c-secondary)"></span><span><b>Band 2</b> &mdash; carries Band 1 up to the deck</span></div>
+      <div><span class="sw" style="background:var(--accent)"></span><span><b>Band 3</b> &mdash; third plane, sharper down rails only</span></div>
+    </div>
+  </div>
+
+  <div id="rail-out"></div>
+
+  <footer class="notes">
+    <h3>Methodology &amp; sources</h3>
+    <p>Rail-family shapes and band structure are compiled from published shaping references and long-running shaper community discussion &mdash; principally Greenlight Surf Supply's rail band guides and Swaylocks forum threads on marking and cutting rail bands. Dimensions are anchored to a 2&frac12;&Prime; center-thickness reference board (a common convention in these sources) and scaled proportionally to your actual thickness at each station.</p>
+    <p>Every source is emphatic that these are starting points, not gospel: fine-tune by eye, and let the line follow the flow of your rocker and foil rather than chasing a number. Treat this tool as a story stick, not a rulebook.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var unitMode = 'in';
+
+  function gcd(a,b){ while(b){ var t=b; b=a%b; a=t; } return a; }
+  function fracInch(v){
+    if(v==null||isNaN(v)) return '—';
+    var whole=Math.floor(v+1e-9), rem=v-whole, s=Math.round(rem*16);
+    if(s===16){ whole+=1; s=0; }
+    if(s===0) return whole+'″';
+    var n=s, d=16, g=gcd(n,d); n/=g; d/=g;
+    return (whole>0?whole+' ':'')+n+'/'+d+'″';
+  }
+  function round1(x){ return Math.round(x*10)/10; }
+  function fmtIn(inches){
+    if(inches==null||isNaN(inches)) return '—';
+    return unitMode==='cm' ? (round1(inches*2.54)+' cm') : fracInch(inches);
+  }
+
+  /* band rows: [band1, band2, band3] at a 2.5" center-thickness reference.
+     Ordered by ascending tuck value, then (for the no-tuck / fifty-mirrored family) by ascending Band 1. */
+  var RAILS = [
+    { name:'Down Rail / Hard Edge', family:'Edge character', apexRatio:0.35, tuck:0.375, b:[1.75,2.375,3.00],
+      blurb:'Crisp, low, near-vertical wall — releases water fast on modern shortboards.' },
+    { name:'Tucked Under Edge', family:'Edge character', apexRatio:0.40, tuck:0.4375, b:[1.875,2.75,NaN],
+      blurb:'A hard edge softened by a rolled facet — planing speed with more forgiveness.' },
+    { name:'60/40', family:'Apex position', apexRatio:0.40, tuck:0.500, b:[2.00,3.25,NaN],
+      blurb:'Wide point ~60% down from the deck — the balanced, all-around go-to.' },
+    { name:'Boxy', family:'Volume shape', apexRatio:0.40, tuck:0.500, b:[2.50,4.00,NaN],
+      blurb:'Full, square-ish volume that releases water fast — loose and skatey underfoot.' },
+    { name:'Modern Thin', family:'Modern performance', apexRatio:0.45, tuck:0.500, b:[2.00,4.00,NaN],
+      blurb:'Lower-volume everyday performance rail, thinner through the middle.' },
+    { name:'Modern Medium', family:'Modern performance', apexRatio:0.60, tuck:0.500, b:[2.00,4.00,NaN],
+      blurb:'The standard-issue performance rail most shortboards ship with today.' },
+    { name:'Modern Full', family:'Modern performance', apexRatio:0.60, tuck:0.625, b:[1.50,3.00,NaN],
+      blurb:'Extra foam under the chest for paddle power, without losing the foil.' },
+    { name:'50/50', family:'Apex position', apexRatio:0.50, tuck:NaN, b:[0.75,1.375,2.00], fifty:true,
+      blurb:'Wide point dead center — equal volume above and below. Classic noserider rail.' },
+    { name:'Egg (Soft Round)', family:'Volume shape', apexRatio:0.50, tuck:NaN, b:[1.25,1.75,NaN], fifty:true,
+      blurb:'Full, round and forgiving, blended top to bottom. Easy-paddling and beginner-friendly.' },
+    { name:'Pinched / Knifey', family:'Volume shape', apexRatio:0.45, tuck:NaN, b:[2.00,3.00,NaN], fifty:true,
+      blurb:'Tapered, low-volume edge that sinks into a turn easily — built for powerful surf.' }
+  ];
+
+  /* every card at a given station must share one scale, or CSS width:100% stretches
+     narrow-content rails (50/50, Egg) more than wide ones (Boxy) and inflates their stroke width */
+  var GLOBAL_MAX_B = Math.max.apply(null, RAILS.map(function(rt){
+    return Math.max(isNaN(rt.b[0])?0:rt.b[0], isNaN(rt.b[1])?0:rt.b[1], isNaN(rt.b[2])?0:rt.b[2]);
+  }));
+
+  function drawRail(t, rt){
+    var S = 34, padL = 14, padR = 28, padTop = 16, padBot = 18, R = 2.2;
+    var factor = t/2.5;
+    var tuck = isNaN(rt.tuck) ? NaN : rt.tuck*factor;
+    var b0 = isNaN(rt.b[0]) ? NaN : rt.b[0]*factor;
+    var b1 = isNaN(rt.b[1]) ? NaN : rt.b[1]*factor;
+    var b2 = isNaN(rt.b[2]) ? NaN : rt.b[2]*factor;
+    var adj = rt.fifty ? t*0.08 : 0;
+    var apex = rt.apexRatio*t;
+    var apexTop = apex+adj, apexBot = apex-adj;
+    /* the finished, blended rail is widest at the midpoint of the mark line, not its raw top corner */
+    var peakY = rt.fifty ? apex : (tuck + apexTop)/2;
+
+    var maxX = Math.max(0.6, GLOBAL_MAX_B*factor);
+    var W = padL + padR + maxX*S, H = padTop+padBot + t*S;
+    function PX(x){ return padL + (maxX - x)*S; }
+    function PY(y){ return padTop + (t - y)*S; }
+
+    var lines = [], marks = [];
+    function seg(x1,y1,x2,y2,cls){
+      if([x1,y1,x2,y2].some(function(v){return v==null||isNaN(v);})) return;
+      lines.push('<line class="rl '+cls+'" x1="'+PX(x1).toFixed(1)+'" y1="'+PY(y1).toFixed(1)+'" x2="'+PX(x2).toFixed(1)+'" y2="'+PY(y2).toFixed(1)+'"/>');
+    }
+    function dot(x,y,cls){
+      if(x==null||y==null||isNaN(x)||isNaN(y)) return;
+      marks.push('<circle class="rm '+cls+'" cx="'+PX(x).toFixed(1)+'" cy="'+PY(y).toFixed(1)+'" r="'+R+'"/>');
+    }
+    function peakDash(x,y){
+      if(x==null||y==null||isNaN(x)||isNaN(y)) return;
+      var cx=PX(x), cy=PY(y);
+      marks.push('<line class="pk-dash" x1="'+(cx+2).toFixed(1)+'" y1="'+cy.toFixed(1)+'" x2="'+(cx+18).toFixed(1)+'" y2="'+cy.toFixed(1)+'"/>');
+    }
+
+    seg(maxX,0, 0,0, 'ref');
+    seg(maxX,t, 0,t, 'ref');
+
+    if(!isNaN(tuck)){
+      var tuckHalf = tuck/2;
+      seg(0,tuck, tuckHalf,0, 'tuck1');
+      var tMidX = tuckHalf/2, tMidY = tuck/2;
+      seg(tMidX,tMidY, tuck,0, 'tuck2');
+      dot(tuckHalf,0,'tuck1');
+      dot(tuck,0,'tuck2');
+      seg(0,tuck, 0,apexTop, 'mark');
+    }
+    if(rt.fifty){
+      seg(0,apexBot, 0,apexTop, 'mark');
+      dot(0,apexBot,'apex');
+    }
+    dot(0,apexTop,'apex');
+
+    seg(0,apexTop, b0,t, 'primary');
+    var tmp = b0/2, tmp2 = apexTop + (t-apexTop)/2;
+    seg(tmp,tmp2, b1,t, 'secondary');
+    var x3 = (b1 - tmp)/2 + tmp, y3 = tmp2 + (t - tmp2)/2;
+    seg(x3,y3, b2,t, 'tertiary');
+    dot(b0,t,'primary'); dot(b1,t,'secondary'); dot(b2,t,'tertiary');
+
+    if(rt.fifty){
+      seg(0,apexBot, b0,0, 'primary');
+      seg(b0/2, apexBot/2, b1,0, 'secondary');
+      seg((b1-b0/2)/2 + b0/2, apexBot/4, b2,0, 'tertiary');
+      dot(b0,0,'primary'); dot(b1,0,'secondary'); dot(b2,0,'tertiary');
+    }
+    peakDash(0, peakY);
+
+    return '<svg class="rail-svg" viewBox="0 0 '+W.toFixed(1)+' '+H.toFixed(1)+
+      '" width="'+W.toFixed(0)+'" height="'+H.toFixed(0)+'" role="img" aria-label="'+
+      rt.name+' cross-section at '+fmtIn(t)+' thick, apex at '+fmtIn(apexTop)+', peak at '+fmtIn(peakY)+' off the bottom">'+lines.join('')+marks.join('')+'</svg>';
+  }
+
+  function statCell(label, valueText, colorVar, dash){
+    var swAttr = dash ? 'class="sw dash"' : 'class="sw" style="background:'+colorVar+'"';
+    return '<div><div class="lab"><span '+swAttr+'></span>'+label+
+      '</div><div class="val">'+valueText+'</div></div>';
+  }
+
+  function railStats(t, rt){
+    var factor = t/2.5;
+    var tuck = isNaN(rt.tuck) ? NaN : rt.tuck*factor;
+    var tuck1 = isNaN(tuck) ? NaN : tuck/2;
+    var b0 = isNaN(rt.b[0]) ? NaN : rt.b[0]*factor;
+    var b1 = isNaN(rt.b[1]) ? NaN : rt.b[1]*factor;
+    var b2 = isNaN(rt.b[2]) ? NaN : rt.b[2]*factor;
+    var adj = rt.fifty ? t*0.08 : 0;
+    var apex = rt.apexRatio*t;
+    var apexTop = apex+adj;
+    var peakY = rt.fifty ? apex : (tuck + apexTop)/2;
+
+    var cells = [
+      statCell('Apex', fmtIn(apexTop), 'var(--c-mark)'),
+      statCell('Peak', fmtIn(peakY), 'var(--c-mark)', true),
+      statCell('Tuck 1', fmtIn(tuck1), 'var(--c-tuck1)'),
+      statCell('Tuck 2', fmtIn(tuck), 'var(--c-tuck)'),
+      statCell('Band 1', fmtIn(b0), 'var(--c-primary)'),
+      statCell('Band 2', fmtIn(b1), 'var(--c-secondary)'),
+      statCell('Band 3', fmtIn(b2), 'var(--accent)'),
+      '<div></div>'
+    ];
+    return '<div class="rail-stats">'+cells.join('')+'</div>';
+  }
+
+  function railLocation(title, t){
+    var cards = RAILS.map(function(rt, i){
+      var divider = '';
+      if(i===0) divider = '<div class="grid-divider">Sorted by ascending tuck depth</div>';
+      else if(rt.fifty && !RAILS[i-1].fifty) divider = '<div class="grid-divider">No tuck &mdash; mirrored top &amp; bottom bands, sorted by Band 1</div>';
+      return divider+'<div class="rail-card"><div class="rail-fam">'+rt.family+'</div>'+
+        '<h4 class="rail-name">'+rt.name+'</h4>'+
+        '<p class="rail-blurb">'+rt.blurb+'</p>'+
+        drawRail(t, rt) + railStats(t, rt) + '</div>';
+    }).join('');
+    return '<details class="loc-block" open><summary class="loc-head"><span class="chevron" aria-hidden="true">&#9656;</span><h3 class="loc-title">'+title+
+      '</h3><span class="loc-meta">thickness '+fmtIn(t)+'</span></summary>'+
+      '<div class="grid-rails">'+cards+'</div></details>';
+  }
+
+  function renderRails(){
+    var tn = parseFloat(document.getElementById('tn').value);
+    var tc = parseFloat(document.getElementById('tc').value);
+    var tt = parseFloat(document.getElementById('tt').value);
+    document.getElementById('tn-out').textContent = fmtIn(tn);
+    document.getElementById('tc-out').textContent = fmtIn(tc);
+    document.getElementById('tt-out').textContent = fmtIn(tt);
+    document.getElementById('rail-spec').innerHTML =
+      'Nose <b>'+fmtIn(tn)+'</b>   ·   Center <b>'+fmtIn(tc)+'</b>   ·   Tail <b>'+fmtIn(tt)+'</b>   ·   10 rail families × 3 stations';
+
+    document.getElementById('rail-out').innerHTML =
+      railLocation('Nose', tn) +
+      railLocation('Center', tc) +
+      railLocation('Tail', tt);
+  }
+
+  function syncMinMax(){
+    var lo = unitMode==='cm' ? '2.5 cm' : '1″';
+    var hi = unitMode==='cm' ? '8.9 cm' : '3½″';
+    Array.prototype.forEach.call(document.querySelectorAll('.mm-lo'), function(el){ el.textContent = lo; });
+    Array.prototype.forEach.call(document.querySelectorAll('.mm-hi'), function(el){ el.textContent = hi; });
+  }
+
+  var units = document.getElementById('units');
+  units.addEventListener('click', function(e){
+    var b = e.target.closest('button');
+    if(!b) return;
+    unitMode = b.getAttribute('data-val');
+    Array.prototype.forEach.call(units.querySelectorAll('button'), function(x){ x.classList.toggle('on', x===b); });
+    syncMinMax();
+    renderRails();
+  });
+
+  ['tn','tc','tt'].forEach(function(id){ document.getElementById(id).addEventListener('input', renderRails); });
+
+  window.addEventListener('beforeprint', function(){
+    Array.prototype.forEach.call(document.querySelectorAll('.loc-block'), function(d){
+      d.setAttribute('data-reclose', d.open ? '' : '1');
+      d.open = true;
+    });
+  });
+  window.addEventListener('afterprint', function(){
+    Array.prototype.forEach.call(document.querySelectorAll('.loc-block'), function(d){
+      if(d.getAttribute('data-reclose')==='1') d.open = false;
+      d.removeAttribute('data-reclose');
+    });
+  });
+
+  renderRails();
+})();
+</script>
+</body>
+</html>
