@@ -4,4 +4,4 @@
 - [Shaping Bay 4](shaping-bay_4.html)
 - [Surfboard Design Theory](Surfboard%20Design%20Theory.gdoc)
 - [Surfboard Shaping Checklist](Surfboard%20Shaping%20Checklist.gdoc)
-- [Fin Placement Calculator](Fin%20Placement%20Calculator.gdoc)
+- [Fin Placement Calculator](Fin%20Placement%20Calculator.html)
