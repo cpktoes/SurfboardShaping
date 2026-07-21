@@ -57,62 +57,70 @@
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{
-    margin:0;font-family:var(--display);color:var(--ink);background:var(--paper);line-height:1.5;
+    margin:0;font-family:var(--display);color:var(--ink);background:var(--paper);line-height:1.55;font-size:17px;
     -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:1180px;margin:0 auto;padding:0 22px 90px}
   a{color:inherit}
   :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
+  .toolnav{background:var(--ink);border-bottom:1px solid var(--rule-strong)}
+  .toolnav-inner{max-width:1180px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .toolnav-brand{font-size:13.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--paper);opacity:.82}
+  .toolnav-links{display:flex;gap:4px;flex-wrap:wrap}
+  .toolnav-links a{font-size:14.5px;font-weight:600;color:rgba(250,250,250,.62);text-decoration:none;padding:8px 15px;border-radius:var(--radius);transition:color .15s,background .15s}
+  .toolnav-links a:hover{color:#fff;background:rgba(255,255,255,.09)}
+  .toolnav-links a.active{color:#fff;background:var(--accent)}
+
   header.site{padding:44px 0 20px;border-bottom:1px solid var(--rule-strong)}
-  .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 12px}
-  h1.title{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:clamp(30px,5.2vw,50px);text-wrap:balance}
-  .lede{margin:12px 0 0;max-width:60ch;color:var(--ink-2);font-size:15.5px}
+  .eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 12px}
+  h1.title{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em;font-size:clamp(34px,5.4vw,56px);text-wrap:balance}
+  .lede{margin:12px 0 0;max-width:62ch;color:var(--ink-2);font-size:18px}
 
   .intro{margin:24px 0 0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
   .intro-card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:16px 18px}
-  .intro-card h3{margin:0 0 6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
-  .intro-card p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.55}
+  .intro-card h3{margin:0 0 6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .intro-card p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.6}
   .intro-card b{color:var(--ink);font-weight:600}
 
   .tool-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:34px 0 0;flex-wrap:wrap}
-  h2.section{margin:0;font-weight:700;letter-spacing:-.01em;font-size:clamp(19px,2.6vw,24px)}
-  .section-sub{margin:5px 0 0;color:var(--mid);font-size:13px;max-width:56ch}
+  h2.section{margin:0;font-weight:700;letter-spacing:-.01em;font-size:clamp(22px,2.8vw,27px)}
+  .section-sub{margin:5px 0 0;color:var(--mid);font-size:15px;max-width:56ch}
 
   .btnrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
   .printbtn{
-    font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.04em;cursor:pointer;
+    font-family:var(--display);font-size:14px;font-weight:600;letter-spacing:.04em;cursor:pointer;
     white-space:nowrap;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);padding:11px 16px;line-height:1}
   .printbtn:hover{background:#943f07}
   .units{display:flex;align-items:center;gap:9px}
-  .units-lab{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);font-weight:600}
+  .units-lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);font-weight:600}
   .seg{display:flex;border:1px solid var(--rule-strong);border-radius:var(--radius);overflow:hidden}
-  .seg button{flex:1;font-family:var(--display);font-size:11.5px;font-weight:600;letter-spacing:.02em;
+  .seg button{flex:1;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.02em;
     background:transparent;color:var(--ink-2);border:none;border-left:1px solid var(--rule-strong);padding:10px 14px;cursor:pointer;line-height:1}
   .seg button:first-child{border-left:none}
   .seg button.on{background:var(--ink);color:var(--paper)}
 
   .controls{margin:20px 0 0;background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:20px 22px;display:grid;gap:22px;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-  .ctrl label{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);font-weight:600;margin:0 0 10px}
+  .ctrl label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);font-weight:600;margin:0 0 10px}
   .ctrl .readout{font-family:var(--mono);font-weight:600;color:var(--accent);margin-left:6px}
   .ctrl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--rule-strong);border-radius:2px;outline-offset:6px;cursor:pointer}
   .ctrl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;
     background:var(--ink);border:2.5px solid var(--card);box-shadow:0 0 0 1px var(--rule-strong);cursor:pointer}
   .ctrl input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--ink);border:2.5px solid var(--card);
     box-shadow:0 0 0 1px var(--rule-strong);cursor:pointer}
-  .minmax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--mid);margin-top:7px}
+  .minmax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--mid);margin-top:7px}
 
-  .spec{margin:20px 0 4px;font-family:var(--mono);font-size:12.5px;color:var(--ink);border-left:2px solid var(--accent);
+  .spec{margin:20px 0 4px;font-family:var(--mono);font-size:14.5px;color:var(--ink);border-left:2px solid var(--accent);
     padding:8px 0 8px 14px;background:var(--rule-accent)}
   .spec b{color:var(--accent);font-weight:700}
 
   .keywrap{margin:28px 0 0;background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:20px}
-  .keywrap h3{margin:0 0 4px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600}
-  .keywrap .cap{margin:2px 0 14px;font-size:12.5px;color:var(--mid);max-width:72ch}
+  .keywrap h3{margin:0 0 4px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600}
+  .keywrap .cap{margin:2px 0 14px;font-size:14.5px;color:var(--mid);max-width:72ch}
   .key-svg{display:block;width:100%;max-width:706px;height:auto;margin:0 auto}
   .keylegend{margin:16px 0 0;display:grid;gap:6px 26px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-  .keylegend div{display:flex;align-items:baseline;gap:8px;font-size:12px;color:var(--ink-2)}
+  .keylegend div{display:flex;align-items:baseline;gap:8px;font-size:14px;color:var(--ink-2)}
   .sw{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none;transform:translateY(1px)}
   .sw.dash{width:13px;height:3px;border-radius:0;background:none!important;
     background-image:repeating-linear-gradient(to right,var(--c-mark) 0 3px,transparent 3px 5.5px)!important}
@@ -124,16 +132,16 @@
   .loc-head{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule-strong);padding-bottom:8px;flex-wrap:wrap}
   .loc-head .chevron{display:inline-block;font-size:11px;color:var(--mid);transition:transform .15s ease}
   .loc-block[open] > summary .chevron{transform:rotate(90deg)}
-  .loc-title{font-size:16px;font-weight:700;letter-spacing:-.01em;margin:0}
-  .loc-meta{font-family:var(--mono);font-size:11.5px;color:var(--accent);font-weight:600}
+  .loc-title{font-size:19px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .loc-meta{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:600}
   .grid-rails{margin:14px 0 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(226px,1fr))}
-  .grid-divider{grid-column:1/-1;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);
+  .grid-divider{grid-column:1/-1;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);
     padding-top:10px;margin-top:2px;border-top:1px dashed var(--rule-strong)}
   .grid-divider:first-child{border-top:none;padding-top:0;margin-top:0}
   .rail-card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:13px 13px 11px;display:flex;flex-direction:column}
-  .rail-fam{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;height:12px}
-  .rail-name{font-size:13.5px;font-weight:700;letter-spacing:-.005em;line-height:1.3;margin:2px 0 6px;height:35px;overflow:hidden}
-  .rail-blurb{font-size:11.5px;color:var(--mid);line-height:1.4;margin:0 0 10px;height:47px;overflow:hidden;
+  .rail-fam{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;height:14px}
+  .rail-name{font-size:15.5px;font-weight:700;letter-spacing:-.005em;line-height:1.3;margin:2px 0 6px;height:41px;overflow:hidden}
+  .rail-blurb{font-size:13px;color:var(--mid);line-height:1.45;margin:0 0 10px;height:56px;overflow:hidden;
     display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
   .rail-svg{display:block;margin:2px auto 10px;flex:none}
   .rail-svg .rl{fill:none;stroke-linecap:round;stroke-linejoin:round}
@@ -154,14 +162,14 @@
   .rail-svg .pk-dash{stroke:var(--c-mark);stroke-width:1.5;stroke-dasharray:2.5 2.2}
   .rail-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:auto;font-family:var(--mono);border-radius:var(--radius);overflow:hidden}
   .rail-stats div{background:var(--card);padding:6px 3px;text-align:center}
-  .rail-stats .lab{font-size:8px;letter-spacing:.02em;color:var(--mid);text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:3px}
-  .rail-stats .val{font-size:11px;font-weight:700;color:var(--ink);margin-top:2px;font-variant-numeric:tabular-nums}
+  .rail-stats .lab{font-size:9.5px;letter-spacing:.02em;color:var(--mid);text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:3px}
+  .rail-stats .val{font-size:13px;font-weight:700;color:var(--ink);margin-top:2px;font-variant-numeric:tabular-nums}
   .rail-stats .sw{width:8px;height:8px}
   .rail-stats .sw.dash{width:10px;height:2.5px;border-radius:0;background:none!important;
     background-image:repeating-linear-gradient(to right,var(--c-mark) 0 2.2px,transparent 2.2px 4px)!important}
 
-  footer.notes{margin:44px 0 0;border-top:1px solid var(--rule-strong);padding-top:18px;font-size:12px;color:var(--mid);max-width:80ch}
-  footer.notes h3{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 8px;font-weight:600}
+  footer.notes{margin:44px 0 0;border-top:1px solid var(--rule-strong);padding-top:18px;font-size:14px;color:var(--mid);max-width:80ch}
+  footer.notes h3{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 8px;font-weight:600}
   footer.notes p{margin:0 0 10px}
 
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -171,7 +179,7 @@
     .wrap{max-width:none;padding:0}
     .noprint{display:none!important}
     header.site{padding:0 0 8px;border-color:#000}
-    h1.title{font-size:26px}
+    h1.title{font-size:28px}
     .rail-card,.loc-block,.keywrap,.intro-card{break-inside:avoid}
     .rail-card,.controls,.spec,.keywrap,.intro-card{border-color:#000}
     .grid-rails{gap:8px;grid-template-columns:repeat(4,1fr)}
@@ -180,6 +188,15 @@
 </style>
 </head>
 <body>
+<div class="toolnav noprint">
+  <div class="toolnav-inner">
+    <span class="toolnav-brand">Backyard Shaper &middot; Tool Suite</span>
+    <div class="toolnav-links">
+      <a href="rail-band-marking-calculator.html" class="active" aria-current="page">Rail Band Calculator</a>
+      <a href="fin-placement-calculator.html">Fin Placement Calculator</a>
+    </div>
+  </div>
+</div>
 <div class="wrap">
 
   <header class="site">
@@ -248,8 +265,8 @@
       <path d="M60,40 Q14,150 60,260" fill="none" stroke="var(--mid)" stroke-width="1.25"/>
       <line x1="60" y1="40" x2="580" y2="40" stroke="var(--mid)" stroke-width="1" stroke-dasharray="2 4"/>
       <line x1="60" y1="260" x2="580" y2="260" stroke="var(--mid)" stroke-width="1" stroke-dasharray="2 4"/>
-      <text x="64" y="34" font-family="var(--mono)" font-size="10" fill="var(--mid)" letter-spacing="1">DECK</text>
-      <text x="64" y="277" font-family="var(--mono)" font-size="10" fill="var(--mid)" letter-spacing="1">BOTTOM</text>
+      <text x="64" y="34" font-family="var(--mono)" font-size="11" fill="var(--mid)" letter-spacing="1">DECK</text>
+      <text x="64" y="277" font-family="var(--mono)" font-size="11" fill="var(--mid)" letter-spacing="1">BOTTOM</text>
 
       <!-- Band 1 runs apex → deck directly; Band 2 branches from Band 1's own midpoint out to a further deck point -->
       <line x1="560" y1="150" x2="380" y2="40" stroke="var(--c-primary)" stroke-width="2"/>
@@ -267,20 +284,20 @@
       <line x1="566" y1="187.5" x2="586" y2="187.5" stroke="var(--c-mark)" stroke-width="1.5" stroke-dasharray="2.5 2.2"/>
 
       <line x1="360" y1="30" x2="360" y2="58" stroke="var(--c-secondary)" stroke-width="1.5" marker-end="url(#ah-s)"/>
-      <text x="360" y="20" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="11" letter-spacing=".03em" fill="var(--c-secondary)">BAND 2</text>
+      <text x="360" y="19" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="12" letter-spacing=".03em" fill="var(--c-secondary)">BAND 2</text>
 
       <line x1="495" y1="30" x2="495" y2="100" stroke="var(--c-primary)" stroke-width="1.5" marker-end="url(#ah-p)"/>
-      <text x="495" y="20" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="11" letter-spacing=".03em" fill="var(--c-primary)">BAND 1</text>
+      <text x="495" y="19" text-anchor="middle" font-family="var(--display)" font-weight="600" font-size="12" letter-spacing=".03em" fill="var(--c-primary)">BAND 1</text>
 
       <line x1="568" y1="150" x2="582" y2="150" stroke="var(--c-mark)" stroke-width="1.5"/>
-      <text x="587" y="154" font-family="var(--display)" font-weight="600" font-size="11" letter-spacing=".03em" fill="var(--c-mark)">APEX</text>
+      <text x="587" y="154" font-family="var(--display)" font-weight="600" font-size="12" letter-spacing=".03em" fill="var(--c-mark)">APEX</text>
 
-      <text x="589" y="191" font-family="var(--display)" font-weight="600" font-size="11" letter-spacing=".03em" fill="var(--c-mark)">PEAK</text>
+      <text x="589" y="191" font-family="var(--display)" font-weight="600" font-size="12" letter-spacing=".03em" fill="var(--c-mark)">PEAK</text>
 
       <line x1="542" y1="264" x2="542" y2="278" stroke="var(--c-tuck1)" stroke-width="1.25"/>
       <line x1="524" y1="264" x2="524" y2="278" stroke="var(--c-tuck)" stroke-width="1.25"/>
-      <text x="546" y="288" text-anchor="start" font-family="var(--display)" font-weight="600" font-size="10.5" letter-spacing=".03em" fill="var(--c-tuck1)">TUCK 1</text>
-      <text x="520" y="288" text-anchor="end" font-family="var(--display)" font-weight="600" font-size="10.5" letter-spacing=".03em" fill="var(--c-tuck)">TUCK 2</text>
+      <text x="546" y="289" text-anchor="start" font-family="var(--display)" font-weight="600" font-size="11.5" letter-spacing=".03em" fill="var(--c-tuck1)">TUCK 1</text>
+      <text x="520" y="289" text-anchor="end" font-family="var(--display)" font-weight="600" font-size="11.5" letter-spacing=".03em" fill="var(--c-tuck)">TUCK 2</text>
     </svg>
     <div class="keylegend">
       <div><span class="sw" style="background:var(--c-mark)"></span><span><b>Apex</b> &mdash; dot; where Band 1 begins, measured up from the bottom</span></div>
