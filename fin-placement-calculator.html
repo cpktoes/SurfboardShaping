@@ -45,71 +45,63 @@
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{
-    margin:0;font-family:var(--display);color:var(--ink);background:var(--paper);line-height:1.55;font-size:17px;
+    margin:0;font-family:var(--display);color:var(--ink);background:var(--paper);line-height:1.5;
     -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:1180px;margin:0 auto;padding:0 22px 90px}
   a{color:inherit}
   :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-  .toolnav{background:var(--ink);border-bottom:1px solid var(--rule-strong)}
-  .toolnav-inner{max-width:1180px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .toolnav-brand{font-size:13.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--paper);opacity:.82}
-  .toolnav-links{display:flex;gap:4px;flex-wrap:wrap}
-  .toolnav-links a{font-size:14.5px;font-weight:600;color:rgba(250,250,250,.62);text-decoration:none;padding:8px 15px;border-radius:var(--radius);transition:color .15s,background .15s}
-  .toolnav-links a:hover{color:#fff;background:rgba(255,255,255,.09)}
-  .toolnav-links a.active{color:#fff;background:var(--accent)}
-
   header.site{padding:44px 0 20px;border-bottom:1px solid var(--rule-strong)}
-  .eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 12px}
-  h1.title{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em;font-size:clamp(34px,5.4vw,56px);text-wrap:balance}
-  .lede{margin:12px 0 0;max-width:62ch;color:var(--ink-2);font-size:18px}
+  .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 12px}
+  h1.title{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:clamp(30px,5.2vw,50px);text-wrap:balance}
+  .lede{margin:12px 0 0;max-width:60ch;color:var(--ink-2);font-size:15.5px}
 
   .intro{margin:24px 0 0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
   .intro-card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:16px 18px}
-  .intro-card h3{margin:0 0 6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
-  .intro-card p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.6}
+  .intro-card h3{margin:0 0 6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .intro-card p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.55}
   .intro-card b{color:var(--ink);font-weight:600}
-  .intro-card ul{margin:6px 0 0;padding-left:18px;font-size:14.5px;color:var(--ink-2);line-height:1.65}
+  .intro-card ul{margin:6px 0 0;padding-left:18px;font-size:13px;color:var(--ink-2);line-height:1.6}
 
   .tool-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:34px 0 0;flex-wrap:wrap}
-  h2.section{margin:0;font-weight:700;letter-spacing:-.01em;font-size:clamp(22px,2.8vw,27px)}
-  .section-sub{margin:5px 0 0;color:var(--mid);font-size:15px;max-width:56ch}
+  h2.section{margin:0;font-weight:700;letter-spacing:-.01em;font-size:clamp(19px,2.6vw,24px)}
+  .section-sub{margin:5px 0 0;color:var(--mid);font-size:13px;max-width:56ch}
 
   .btnrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
   .printbtn{
-    font-family:var(--display);font-size:14px;font-weight:600;letter-spacing:.04em;cursor:pointer;
+    font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.04em;cursor:pointer;
     white-space:nowrap;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);padding:11px 16px;line-height:1}
   .printbtn:hover{background:#943f07}
   .units{display:flex;align-items:center;gap:9px}
-  .units-lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);font-weight:600}
+  .units-lab{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);font-weight:600}
   .seg{display:flex;border:1px solid var(--rule-strong);border-radius:var(--radius);overflow:hidden}
-  .seg button{flex:1;font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:.02em;
-    background:transparent;color:var(--ink-2);border:none;border-left:1px solid var(--rule-strong);padding:11px 14px;cursor:pointer;line-height:1}
+  .seg button{flex:1;font-family:var(--display);font-size:11.5px;font-weight:600;letter-spacing:.02em;
+    background:transparent;color:var(--ink-2);border:none;border-left:1px solid var(--rule-strong);padding:10px 14px;cursor:pointer;line-height:1}
   .seg button:first-child{border-left:none}
   .seg button.on{background:var(--ink);color:var(--paper)}
 
   .controls{margin:20px 0 0;background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:20px 22px;display:grid;gap:22px;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-  .ctrl label{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);font-weight:600;margin:0 0 10px}
-  .ctrl .readout{font-family:var(--mono);font-size:19px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--accent);margin-left:6px}
+  .ctrl label{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);font-weight:600;margin:0 0 10px}
+  .ctrl .readout{font-family:var(--mono);font-weight:600;color:var(--accent);margin-left:6px}
   .ctrl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--rule-strong);border-radius:2px;outline-offset:6px;cursor:pointer}
   .ctrl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;
     background:var(--ink);border:2.5px solid var(--card);box-shadow:0 0 0 1px var(--rule-strong);cursor:pointer}
   .ctrl input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--ink);border:2.5px solid var(--card);
     box-shadow:0 0 0 1px var(--rule-strong);cursor:pointer}
-  .minmax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--mid);margin-top:7px}
-  .cap{font-size:13px;color:var(--mid);margin-top:8px;line-height:1.45}
+  .minmax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--mid);margin-top:7px}
+  .cap{font-size:11px;color:var(--mid);margin-top:8px;line-height:1.4}
 
-  .spec{margin:20px 0 4px;font-family:var(--mono);font-size:14.5px;color:var(--ink);border-left:2px solid var(--accent);
+  .spec{margin:20px 0 4px;font-family:var(--mono);font-size:12.5px;color:var(--ink);border-left:2px solid var(--accent);
     padding:8px 0 8px 14px;background:var(--rule-accent)}
   .spec b{color:var(--accent);font-weight:700}
 
   .keywrap{margin:28px 0 0;background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:20px}
-  .keywrap h3{margin:0 0 4px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600}
-  .keywrap .cap2{margin:2px 0 4px;font-size:14.5px;color:var(--mid);max-width:76ch;line-height:1.6}
+  .keywrap h3{margin:0 0 4px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600}
+  .keywrap .cap2{margin:2px 0 4px;font-size:12.5px;color:var(--mid);max-width:76ch;line-height:1.55}
   .keylegend{margin:14px 0 0;display:grid;gap:6px 26px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
-  .keylegend div{display:flex;align-items:baseline;gap:8px;font-size:14px;color:var(--ink-2)}
+  .keylegend div{display:flex;align-items:baseline;gap:8px;font-size:12px;color:var(--ink-2)}
   .keylegend dt{font-weight:700;color:var(--ink)}
   .keylegend dd{margin:0}
 
@@ -117,22 +109,53 @@
   .card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);display:flex;flex-direction:column;
     min-width:0;overflow:hidden}
   .card-head{padding:16px 18px 12px;border-bottom:1px solid var(--rule)}
-  .card-fam{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
-  .card-name{margin:3px 0 0;font-size:19px;font-weight:700;letter-spacing:-.005em}
-  .card table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:15px}
+  .card-fam{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .card-name{margin:3px 0 0;font-size:17px;font-weight:700;letter-spacing:-.005em}
+  .card table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px}
   .card td{padding:8px 18px;border-top:1px solid var(--rule);vertical-align:baseline;overflow-wrap:break-word;word-break:break-word}
   .card tr:first-child td{border-top:none}
   .card td.k{color:var(--ink-2);width:54%}
   .card td.v{font-family:var(--mono);text-align:right;font-weight:600;width:46%}
   .card td.krange{color:var(--ink-2);width:auto}
   .card td.krange .vrange{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 10px;margin-top:6px;
-    font-family:var(--mono);font-weight:600;font-size:14px;color:var(--ink)}
+    font-family:var(--mono);font-weight:600;font-size:12.5px;color:var(--ink)}
   .card td.krange .vrange span{white-space:nowrap}
-  .card .note{padding:10px 18px;font-size:13px;color:var(--mid);border-top:1px dashed var(--rule);line-height:1.5;margin-top:auto}
-  .approx{display:block;color:var(--mid);font-weight:600;font-size:11.5px;letter-spacing:.02em;margin-top:2px}
+  .card .note{padding:10px 18px;font-size:11.5px;color:var(--mid);border-top:1px dashed var(--rule);line-height:1.45;margin-top:auto}
+  .approx{display:block;color:var(--mid);font-weight:600;font-size:10px;letter-spacing:.02em;margin-top:2px}
 
-  footer.notes{margin:44px 0 0;border-top:1px solid var(--rule-strong);padding-top:18px;font-size:14px;color:var(--mid);max-width:82ch}
-  footer.notes h3{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 8px;font-weight:600}
+  .vizcontrols{margin:20px 0 0;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .vizgroup-label{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);font-weight:600;margin:0 0 10px}
+  .radiogrid{display:grid;gap:8px}
+  .radiogrid.tailgrid{grid-template-columns:repeat(auto-fill,minmax(82px,1fr))}
+  .radiogrid.finselgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .radiogrid button{font-family:var(--display);background:var(--card);color:var(--ink-2);border:1px solid var(--rule-strong);
+    border-radius:var(--radius);cursor:pointer;line-height:1.25}
+  .radiogrid button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+  .radiogrid.tailgrid button{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;font-weight:600;
+    padding:8px 6px 7px;text-align:center}
+  .radiogrid.tailgrid button .thumb-svg{color:var(--ink-2);width:44px;height:auto}
+  .radiogrid.tailgrid button.on .thumb-svg{color:var(--paper)}
+  .radiogrid.finselgrid button{display:block;font-size:11px;font-weight:600;padding:10px 12px;text-align:left}
+  .radiogrid.finselgrid button .fam{display:block;font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;margin-bottom:2px}
+  .radiogrid button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+  .vizcard{margin:20px 0 0;background:#fff;border:1px solid #000;border-radius:var(--radius);padding:20px;overflow:hidden}
+  .vizcard .viz-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 18px;margin:0 0 14px;
+    font-family:var(--mono);font-size:12.5px;color:#000}
+  .vizcard .viz-cap{margin:0 0 14px;font-size:12px;color:#333}
+  .viz-svg{display:block;margin:0 auto;max-width:760px;width:100%;height:auto}
+  .viz-svg .outline{fill:none;stroke:#8a8a8a;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .viz-svg .outline-glow{fill:none;stroke:#b8b8b8;stroke-width:7;opacity:.4;stroke-linejoin:round;stroke-linecap:round}
+  .viz-svg .stringer{stroke:#C9A96E;stroke-width:1.5}
+  .viz-svg .guide{stroke:#000;stroke-width:1;stroke-dasharray:2 4;opacity:.3}
+  .viz-svg .bracket{stroke:#000;stroke-width:1}
+  .viz-svg .tick{stroke:#000;stroke-width:1}
+  .viz-svg .tie{stroke:#000;stroke-width:1.5}
+  .viz-svg .fdot{fill:#000;stroke:#fff;stroke-width:1.5}
+  .viz-svg .axislab{font-family:var(--mono);font-size:10.5px;fill:#000}
+
+  footer.notes{margin:44px 0 0;border-top:1px solid var(--rule-strong);padding-top:18px;font-size:12px;color:var(--mid);max-width:82ch}
+  footer.notes h3{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 8px;font-weight:600}
   footer.notes p{margin:0 0 10px}
 
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -142,24 +165,16 @@
     .wrap{max-width:none;padding:0}
     .noprint{display:none!important}
     header.site{padding:0 0 8px;border-color:#000}
-    h1.title{font-size:28px}
-    .card,.keywrap,.intro-card{break-inside:avoid}
+    h1.title{font-size:26px}
+    .card,.keywrap,.intro-card,.vizcard{break-inside:avoid}
     .card,.controls,.spec,.keywrap,.intro-card{border-color:#000}
     .grid-fins{gap:10px}
+    .vizcontrols{display:none}
     @page{margin:12mm}
   }
 </style>
 </head>
 <body>
-<div class="toolnav noprint">
-  <div class="toolnav-inner">
-    <span class="toolnav-brand">Backyard Shaper &middot; Tool Suite</span>
-    <div class="toolnav-links">
-      <a href="rail-band-marking-calculator.html">Rail Band Calculator</a>
-      <a href="fin-placement-calculator.html" class="active" aria-current="page">Fin Placement Calculator</a>
-    </div>
-  </div>
-</div>
 <div class="wrap">
 
   <header class="site">
@@ -179,7 +194,7 @@
     </div>
     <div class="intro-card">
       <h3>Sanity-check numbers</h3>
-      <p>Industry defaults worth cross-checking against: thruster side fins <b>11″–12″</b> off tail, <b>1⅛″–1¼″</b> off rail, front toe <b>¼″</b>; center fin <b>3″–4″</b> off tail. Quad rear fins get <b>⅛″–⅜″</b> toe. Front cant runs roughly <b>5°–9°</b>, rear <b>3°–5°</b> (cant isn't computed here — no reliable formula, so treat it as a box-angle decision, not a slider).</p>
+      <p>Industry defaults worth cross-checking against: thruster side fins <b>11&Prime;&ndash;12&Prime;</b> off tail, <b>1&#8539;&Prime;&ndash;1&frac14;&Prime;</b> off rail, front toe <b>&frac14;&Prime;</b>; center fin <b>3&Prime;&ndash;4&Prime;</b> off tail. Quad rear fins get <b>&#8539;&Prime;&ndash;&#8540;&Prime;</b> toe. Front cant runs roughly <b>5&deg;&ndash;9&deg;</b>, rear <b>3&deg;&ndash;5&deg;</b> (cant isn't computed here — no reliable formula, so treat it as a box-angle decision, not a slider).</p>
     </div>
   </div>
 
@@ -202,18 +217,18 @@
 
   <div class="controls noprint">
     <div class="ctrl">
-      <label for="len">Board length <span class="readout" id="len-out">6′ 0″  (72″)</span></label>
+      <label for="len">Board length <span class="readout" id="len-out"></span></label>
       <input type="range" id="len" min="60" max="120" step="1" value="72">
-      <div class="minmax"><span>5′0″</span><span>10′0″</span></div>
+      <div class="minmax"><span>5&prime;0&Prime;</span><span>10&prime;0&Prime;</span></div>
     </div>
     <div class="ctrl">
-      <label for="tail">Tail width <span class="readout" id="tail-out">15 1/2″</span></label>
+      <label for="tail">Tail width <span class="readout" id="tail-out"></span></label>
       <input type="range" id="tail" min="10" max="22" step="0.125" value="15.5">
-      <div class="minmax"><span>10″</span><span>22″</span></div>
-      <div class="cap">Measured 12″ up from the tail (the station the McKee tables use).</div>
+      <div class="minmax"><span>10&Prime;</span><span>22&Prime;</span></div>
+      <div class="cap">Measured 12&Prime; up from the tail (the station the McKee tables use).</div>
     </div>
     <div class="ctrl">
-      <label>Tail shape <span class="cap" style="display:inline;margin:0">— McKee '12 fine-tuning</span></label>
+      <label>Tail shape <span class="cap" style="display:inline;margin:0">&mdash; McKee '12 fine-tuning</span></label>
       <div class="seg" id="tshape" role="group" aria-label="Tail shape">
         <button type="button" data-val="std" class="on">Square / Swallow / Round</button>
         <button type="button" data-val="pin">Pin</button>
@@ -222,7 +237,7 @@
     </div>
   </div>
 
-  <p class="spec" id="fin-spec">Board <b>6′ 0″</b> (72″)   ·   Tail width <b>15 1/2″</b>   ·   8 fin setups</p>
+  <p class="spec" id="fin-spec"></p>
 
   <div class="keywrap">
     <h3>Legend</h3>
@@ -237,15 +252,35 @@
     </div>
   </div>
 
-  <div class="grid-fins" id="fin-out"><div class="card"><div class="card-head"><div class="card-fam">Thruster</div><div class="card-name">Generic</div></div><table><tbody><tr><td class="k">Front · off tail</td><td class="v">11 1/4″</td></tr><tr><td class="krange" colspan="2">Front · off rail<div class="vrange"><span>1″</span><span>1 1/16″</span><span>1 1/8″</span><span>1 3/16″</span><span>1 1/4″</span></div></td></tr><tr><td class="krange" colspan="2">Front · toe<div class="vrange"><span>1/8″</span><span>3/16″</span><span>1/4″</span></div></td></tr><tr><td class="k">Center · off tail</td><td class="v">3 1/2″</td></tr></tbody></table><div class="note">Generic three-fin baseline built from a common length-scaling trendline. Cross-check against the sanity-check numbers above.</div></div><div class="card"><div class="card-head"><div class="card-fam">Thruster</div><div class="card-name">Rusty</div></div><table><tbody><tr><td class="k">Front · off tail</td><td class="v">10 11/16″</td></tr><tr><td class="k">Front · off rail</td><td class="v">1 1/8″</td></tr><tr><td class="k">Front · toe</td><td class="v">—<span class="approx">not specified</span></td></tr><tr><td class="k">Center · off tail</td><td class="v">3 3/16″</td></tr></tbody></table><div class="note">Rusty Surfboards’ published reference, scaled linearly off a 6′2″ board. Toe wasn’t part of the source table — use the sanity-check range above.</div></div><div class="card"><div class="card-head"><div class="card-fam">Quad</div><div class="card-name">Rusty</div></div><table><tbody><tr><td class="k">Front · off tail</td><td class="v">10 11/16″</td></tr><tr><td class="k">Front · off rail</td><td class="v">1 1/8″</td></tr><tr><td class="k">Front · toe</td><td class="v">—<span class="approx">not specified</span></td></tr><tr><td class="k">Back · off tail</td><td class="v">1 7/8″</td></tr><tr><td class="k">Back · off rail</td><td class="v">2″</td></tr><tr><td class="k">Back · spread (tip-to-tip)</td><td class="v">11 1/2″</td></tr><tr><td class="k">Back · toe</td><td class="v">—<span class="approx">not specified</span></td></tr><tr><td class="k">Reference mark · off tail</td><td class="v">3 3/16″<span class="approx">see note below</span></td></tr></tbody></table><div class="note">Back off-rail &amp; spread are general defaults; move the back fins toward the rail on fish &amp; wide tails. The extra reference figure isn’t a standard quad fin — it’s kept only in case your box layout adds an optional fifth/stabilizer fin.</div></div><div class="card"><div class="card-head"><div class="card-fam">Quad</div><div class="card-name">McKee ’09</div></div><table><tbody><tr><td class="k">Front · off tail (pre-’09)</td><td class="v">11″</td></tr><tr><td class="k">Front · off tail (’09)</td><td class="v">11″</td></tr><tr><td class="k">Front · off rail</td><td class="v">1 1/8″</td></tr><tr><td class="k">Front · toe (off nose)</td><td class="v">2 5/16″</td></tr><tr><td class="k">Back · off tail</td><td class="v">5 1/16″</td></tr><tr><td class="k">Back · off rail</td><td class="v">4 3/16″</td></tr><tr><td class="k">Back · spread (tip-to-tip)</td><td class="v">7 1/16″</td></tr><tr><td class="k">Back · toe (off nose)</td><td class="v">13/16″</td></tr><tr><td class="k">Reference mark · off tail</td><td class="v">3 5/16″<span class="approx">see note below</span></td></tr></tbody></table><div class="note">’09 front line is tuned for boards under 7′; use the pre-’09 line for longer boards. “Toe (off nose)” is measured with a straightedge along the stringer from the nose, not a fin-tip offset. The extra reference figure isn’t a standard quad fin — see the Rusty-quad note.</div></div><div class="card"><div class="card-head"><div class="card-fam">Quad</div><div class="card-name">McKee ’12</div></div><table><tbody><tr><td class="k">Front · off tail</td><td class="v">10 7/8″</td></tr><tr><td class="k">Back · off tail</td><td class="v">5 1/16″</td></tr><tr><td class="k">Back · spread (tip-to-tip)</td><td class="v">6 7/8″</td></tr><tr><td class="k">Back · from stringer (one side)</td><td class="v">3 7/16″</td></tr><tr><td class="k">Thruster rear (M5) · off tail</td><td class="v">3 5/16″</td></tr><tr><td class="k">Front · toe (stringer at nose)</td><td class="v">2 5/16″</td></tr><tr><td class="k">Back · toe (stringer at nose)</td><td class="v">1″</td></tr></tbody></table><div class="note">No fine-tuning adjustments triggered for this board. The source table only publishes a from-stringer figure for the back pair — use it as a rough guide for the front pair too. M4 Quattro / M5 Multisystem, B.C. McKee (June 2012).</div></div><div class="card"><div class="card-head"><div class="card-fam">Longboard</div><div class="card-name">Single</div></div><table><tbody><tr><td class="krange" colspan="2">Center · off tail<div class="vrange"><span>5 1/2″</span><span>6″</span><span>6 1/2″</span></div></td></tr></tbody></table><div class="note">Single-fin boxes are typically slotted, so this is a starting mark, not a fixed hole.</div></div><div class="card"><div class="card-head"><div class="card-fam">Longboard</div><div class="card-name">2 + 1</div></div><table><tbody><tr><td class="k">Side-bite · off tail</td><td class="v">14″</td></tr><tr><td class="k">Side-bite · off rail</td><td class="v">1 1/4″</td></tr><tr><td class="krange" colspan="2">Side-bite · toe<div class="vrange"><span>1/8″</span><span>3/16″</span><span>1/4″</span></div></td></tr><tr><td class="krange" colspan="2">Center · off tail<div class="vrange"><span>5 1/2″</span><span>6″</span><span>6 1/2″</span></div></td></tr></tbody></table><div class="note">Front side-bites usually run ~14″ off tail (range 13–17″); adjust to taste for pivot vs. drive.</div></div><div class="card"><div class="card-head"><div class="card-fam">Twin</div><div class="card-name">Generic</div></div><table><tbody><tr><td class="k">Front · off tail</td><td class="v">7″</td></tr><tr><td class="krange" colspan="2">Front · off rail<div class="vrange"><span>1 1/4″</span><span>1 3/8″</span><span>1 1/2″</span></div></td></tr><tr><td class="krange" colspan="2">Front · toe<div class="vrange"><span>1/8″</span><span>3/16″</span><span>1/4″</span></div></td></tr></tbody></table><div class="note">Twins commonly run a touch more toe than a thruster’s front pair (around ⅓″) to compensate for the missing center fin’s drive.</div></div></div>
+  <div class="grid-fins" id="fin-out"></div>
+
+  <div class="tool-head" style="margin-top:34px">
+    <div>
+      <h2 class="section">Visualize a layout</h2>
+      <p class="section-sub">Pick a tail shape and a fin setup — the diagram plots that setup's fin boxes to scale on the chosen outline, with dimensions pulled from the matching card above.</p>
+    </div>
+  </div>
+
+  <div class="vizcontrols noprint">
+    <div class="vizgroup">
+      <div class="vizgroup-label">Tail shape</div>
+      <div class="radiogrid tailgrid" id="tailsel" role="radiogroup" aria-label="Tail shape"></div>
+    </div>
+    <div class="vizgroup">
+      <div class="vizgroup-label">Fin setup</div>
+      <div class="radiogrid finselgrid" id="finsel" role="radiogroup" aria-label="Fin setup"></div>
+    </div>
+  </div>
+
+  <div class="vizcard" id="viz-out"></div>
 
   <footer class="notes">
     <h3>Methodology &amp; sources</h3>
-    <p><b>McKee '09 quad</b> — the 2009 front-fin line appears tuned for boards under 7′; use the pre-2009 line for longer boards. Front and back toe figures are read off the nose along the stringer, not at the fin itself.</p>
-    <p><b>McKee '12</b> — interpolated from B.C. McKee's June 2012 M4 Quattro / M5 Multisystem table: front and back off-tail by length, back-fin spread and toe by tail width at 12″ up, plus the M5 thruster rear-fin position. Pintail, narrow-tail cluster-forward, and small-board (≤5′10″) toe compensation apply automatically from the tail-shape and length you set. <i>M4 Quattro</i> and <i>M5 Multisystem</i> are trademarks of B.C. McKee; source: mckeesurf.com.</p>
-    <p><b>Rusty quad</b> — back-off-rail and spread are general defaults that change with tail design; move the back fins closer to the rail on fish and wide-tail boards. Both quad lines here also carry a “center” off-tail figure from the original source table; a standard four-box quad has no center fin, so it's kept only as a reference number for boards that add a fifth, optional stabilizer box.</p>
-    <p><b>Twin &amp; longboard</b> — twin front-off-tail comes from a sparse trendline and wants more data points; sanity-check it against your own boards. Longboard 2+1 front side-bites are usually around 14″ off the tail (range 13–17″).</p>
-    <p><b>Toe &amp; cant conventions</b> — toe-in is a linear offset read with a track square (e.g. a Versa-Square), not a degree measurement; a common baseline is ¼″ for front tri/quad fins, ⅛″–⅜″ for rear quad fins, and roughly ⅜″ for twins. Cant (the fin's lean off vertical) isn't a linear or well-standardized-enough figure to compute here; 5–9° front and 3–5° rear is a commonly cited starting range — more cant loosens the board and reduces drive, less cant adds drive and projection. Sourced from Greenlight Surf Supply's fin-placement guide and FCS/Fiberglass Hawaii's fin box placement charts, alongside the McKee and Rusty tables above.</p>
+    <p><b>McKee '09 quad</b> &mdash; the 2009 front-fin line appears tuned for boards under 7&prime;; use the pre-2009 line for longer boards. Toe in is solved the same way as the '12 card below: a right trapezoid from the fin box to where a straightedge along the leading edge crosses the nose, read partway up the fin base. The back pair's from-stringer distance is half the table's tip-to-tip spread figure.</p>
+    <p><b>McKee '12</b> &mdash; interpolated from B.C. McKee's June 2012 M4 Quattro / M5 Multisystem table: front and back off-tail by length, back-fin from-stringer distance by tail width at 12&Prime; up, plus the M5 thruster rear-fin position. Pintail, narrow-tail cluster-forward, and small-board (&le;5&prime;10&Prime;) toe compensation apply automatically from the tail-shape and length you set. Front off-rail isn't part of the source table &mdash; it's shown as the standard 1&#8539;&Prime;&ndash;1&frac14;&Prime; range used elsewhere on this page. Toe in for both fin pairs is solved geometrically (see the card's note) rather than reported as the source table's raw off-nose figure. <i>M4 Quattro</i> and <i>M5 Multisystem</i> are trademarks of B.C. McKee; source: mckeesurf.com.</p>
+    <p><b>Rusty quad</b> &mdash; back-off-rail and spread are general defaults that change with tail design; move the back fins closer to the rail on fish and wide-tail boards. Both quad lines here also carry a &ldquo;center&rdquo; off-tail figure from the original source table; a standard four-box quad has no center fin, so it's kept only as a reference number for boards that add a fifth, optional stabilizer box.</p>
+    <p><b>Twin &amp; longboard</b> &mdash; twin front-off-tail comes from a sparse trendline and wants more data points; sanity-check it against your own boards. Longboard 2+1 front side-bites are usually around 14&Prime; off the tail (range 13&ndash;17&Prime;).</p>
+    <p><b>Toe &amp; cant conventions</b> &mdash; toe-in is a linear offset read with a track square (e.g. a Versa-Square), not a degree measurement; a common baseline is &frac14;&Prime; for front tri/quad fins, &#8539;&Prime;&ndash;&#8540;&Prime; for rear quad fins, and roughly &#8540;&Prime; for twins. Cant (the fin's lean off vertical) isn't a linear or well-standardized-enough figure to compute here; 5&ndash;9&deg; front and 3&ndash;5&deg; rear is a commonly cited starting range &mdash; more cant loosens the board and reduces drive, less cant adds drive and projection. Sourced from Greenlight Surf Supply's fin-placement guide and FCS/Fiberglass Hawaii's fin box placement charts, alongside the McKee and Rusty tables above.</p>
     <p>As with the rail-band calculator: treat every number here as a story-stick starting point, not gospel. Fine-tune by eye, by your own stance, and by how the board actually rides.</p>
   </footer>
 
@@ -342,7 +377,7 @@
     var SIX2 = 6 + 2/12;
     var R = {};
 
-    R.thrusterGeneric = { ft: 1.8744*x + 0.0044, fr: frange(1, 1.25, 1/16), toe: frange(1/8, 1/4, 1/16), ct: 0.5832*x + 0.0014 };
+    R.thrusterGeneric = { ft: 1.8744*x + 0.0044, fr: [1.0625, 1.25], toe: frange(1/8, 1/4, 1/16), ct: 0.5832*x + 0.0014 };
     R.thrusterRusty = { ft: (11/SIX2)*x, fr: 1.125, toe: '?', ct: (3.25/SIX2)*x };
 
     var ctR = (3.25/SIX2)*x, frCarry = 1.125;
@@ -356,26 +391,46 @@
 
     R.single = { ct: frange(5.5, 6.5, 0.5) };
     R.twoPlusOne = { ft: 14, fr: 1.25, toe: frange(1/8, 1/4, 1/16), ct: frange(5.5, 6.5, 0.5) };
-    R.twin = { ft: 2.7115*x - 9.2404, fr: frange(1.25, 1.5, 1/8), toe: frange(1/8, 1/4, 1/16) };
+    R.twin = { ft: 2.7115*x - 9.2404, fr: frange(1.25, 1.5, 1/8) };
     return R;
   }
 
   /* ============ setup catalogue: diagram points + data rows ============ */
   function row(k, v){ return '<tr><td class="k">'+k+'</td><td class="v">'+v+'</td></tr>'; }
   function rowText(k, text){ return '<tr><td class="k">'+k+'</td><td class="v">'+text+'</td></tr>'; }
-  function rowR(k, arr){
+  function rowR(k, arr, note){
     var chips = arr.map(function(v){ return '<span>'+fmtIn(v)+'</span>'; }).join('');
-    return '<tr><td class="krange" colspan="2">'+k+'<div class="vrange">'+chips+'</div></td></tr>';
+    return '<tr><td class="krange" colspan="2">'+k+'<div class="vrange">'+chips+'</div>'+
+      (note ? '<span class="approx">'+note+'</span>' : '')+'</td></tr>';
   }
   function qmark(v){ return v==='?' ? '—<span class="approx">not specified</span>' : fmtIn(v); }
 
-  function buildSetups(F, m12, tw){
+  /* Right trapezoid ABCD: A runs along the stringer (length A), B sticks out
+     perpendicular to A at the fin-box end, C sticks out perpendicular to A at
+     the nose end, D is the diagonal (the toe line) connecting B's far end to
+     C's far end. Returns the distance from the stringer (side A) to D, h
+     inches up from B — i.e. where the toe line sits at a given height on the
+     fin base. */
+  function trapToe(A, B, C, h){
+    if(!A || isNaN(A) || A<=0) return NaN;
+    return B + (C - B) * (h / A);
+  }
+  /* Toe in, reported as the small inward offset from a straight (untoed)
+     line — B minus where the toe line (side D) actually sits at that height,
+     rather than D's raw distance from the stringer. */
+  function trapToeIn(A, B, C, h){
+    var d = trapToe(A, B, C, h);
+    if(isNaN(d)) return NaN;
+    return Math.abs(B - d);
+  }
+
+  function buildSetups(F, m12, tw, lenIn){
     return [
     { key:'thrGeneric', family:'Thruster', name:'Generic',
       blurb:'Linear baseline covering the common range — a 6′0″ shortboard lands near 11¼″ front, 3½″ center.',
       rows: row('Front &middot; off tail', fmtIn(F.thrusterGeneric.ft)) +
         rowR('Front &middot; off rail', F.thrusterGeneric.fr) +
-        rowR('Front &middot; toe', F.thrusterGeneric.toe) +
+        rowR('Front &middot; toe in', F.thrusterGeneric.toe, '4.5″ fin base assumed') +
         row('Center &middot; off tail', fmtIn(F.thrusterGeneric.ct)),
       note:'Generic three-fin baseline built from a common length-scaling trendline. Cross-check against the sanity-check numbers above.' },
 
@@ -383,57 +438,82 @@
       blurb:'Scaled from a 6′2″ reference board: 11″ front, 3¼″ center.',
       rows: row('Front &middot; off tail', fmtIn(F.thrusterRusty.ft)) +
         row('Front &middot; off rail', fmtIn(F.thrusterRusty.fr)) +
-        rowText('Front &middot; toe', qmark(F.thrusterRusty.toe)) +
+        rowR('Front &middot; toe in', [0.125, 0.25], '4.5″ fin base assumed') +
         row('Center &middot; off tail', fmtIn(F.thrusterRusty.ct)),
-      note:'Rusty Surfboards’ published reference, scaled linearly off a 6′2″ board. Toe wasn’t part of the source table — use the sanity-check range above.' },
+      note:'Rusty Surfboards’ published reference, scaled linearly off a 6′2″ board. Toe in wasn’t part of the source table — shown as a general ⅛″&ndash;¼″ range instead.' },
 
     { key:'quadRusty', family:'Quad', name:'Rusty',
       blurb:'Front cluster shares the Rusty thruster line; back fins are general quad defaults.',
       rows: row('Front &middot; off tail', fmtIn(F.quadRusty.ft)) +
         row('Front &middot; off rail', fmtIn(F.quadRusty.fr)) +
-        rowText('Front &middot; toe', qmark(F.quadRusty.toe)) +
+        rowR('Front &middot; toe in', [0.125, 0.25]) +
         row('Back &middot; off tail', fmtIn(F.quadRusty.bt)) +
         row('Back &middot; off rail', fmtIn(F.quadRusty.br)) +
         row('Back &middot; spread (tip-to-tip)', fmtIn(F.quadRusty.bs)) +
-        rowText('Back &middot; toe', qmark(F.quadRusty.btoe)) +
-        rowText('Reference mark &middot; off tail', fmtIn(F.quadRusty.ct)+'<span class="approx">see note below</span>'),
-      note:'Back off-rail &amp; spread are general defaults; move the back fins toward the rail on fish &amp; wide tails. The extra reference figure isn’t a standard quad fin — it’s kept only in case your box layout adds an optional fifth/stabilizer fin.' },
+        rowR('Back &middot; toe in', [0.0625, 0.1875]) +
+        rowText('Center rear fin &middot; off tail', fmtIn(F.quadRusty.ct)+'<span class="approx">see note below</span>'),
+      note:'Back off-rail &amp; spread are general defaults; move the back fins toward the rail on fish &amp; wide tails. Toe in wasn’t part of the source table — shown as general ranges instead. The extra reference figure isn’t a standard quad fin — it’s kept only in case your box layout adds an optional fifth/stabilizer fin.' },
 
     { key:'quadMckee09', family:'Quad', name:'McKee ’09',
       blurb:'’09 front line is tuned for boards under 7′; the pre-’09 line suits longer boards.',
-      rows: row('Front &middot; off tail (pre-’09)', fmtIn(F.quadMckee.ft1)) +
-        row('Front &middot; off tail (’09)', fmtIn(F.quadMckee.ft2)) +
-        row('Front &middot; off rail', fmtIn(F.quadMckee.fr)) +
-        row('Front &middot; toe (off nose)', fmtIn(F.quadMckee.toe)) +
-        row('Back &middot; off tail', fmtIn(F.quadMckee.bt)) +
-        row('Back &middot; off rail', fmtIn(F.quadMckee.br)) +
-        row('Back &middot; spread (tip-to-tip)', fmtIn(F.quadMckee.bs)) +
-        row('Back &middot; toe (off nose)', fmtIn(F.quadMckee.btoe)) +
-        rowText('Reference mark &middot; off tail', fmtIn(F.quadMckee.ct)+'<span class="approx">see note below</span>'),
-      note:'’09 front line is tuned for boards under 7′; use the pre-’09 line for longer boards. “Toe (off nose)” is measured with a straightedge along the stringer from the nose, not a fin-tip offset. The extra reference figure isn’t a standard quad fin — see the Rusty-quad note.' },
+      rows: (function(){
+        var backOneSide = F.quadMckee.bs / 2; // BackSpreadFromStringerOneSide = 1/2 the tip-to-tip spread
+
+        var frontA = lenIn - 12;
+        var frontB = tw/2 - 1.125;
+        var frontC = F.quadMckee.toe;
+        var frontToeIn = trapToeIn(frontA, frontB, frontC, 4.5);
+
+        var backA = lenIn - F.quadMckee.bt;
+        var backB = backOneSide;
+        var backC = F.quadMckee.btoe;
+        var backToeIn = trapToeIn(backA, backB, backC, 4.25);
+
+        return row('Front &middot; off tail (pre-’09)', fmtIn(F.quadMckee.ft1)) +
+          row('Front &middot; off tail (’09)', fmtIn(F.quadMckee.ft2)) +
+          row('Front &middot; off rail', fmtIn(F.quadMckee.fr)) +
+          rowText('Front &middot; toe in', fmtIn(frontToeIn)+'<span class="approx">4.5″ up the fin base</span>') +
+          row('Back &middot; off tail', fmtIn(F.quadMckee.bt)) +
+          row('Back &middot; from stringer (one side)', fmtIn(backOneSide)) +
+          rowText('Back &middot; toe in', fmtIn(backToeIn)+'<span class="approx">4.25″ up the fin base</span>') +
+          rowText('Center rear fin &middot; off tail', fmtIn(F.quadMckee.ct)+'<span class="approx">see note below</span>');
+      })(),
+      note:'’09 front line is tuned for boards under 7′; use the pre-’09 line for longer boards. Toe in is solved the same way as the McKee ’12 card: a right trapezoid running from the fin box up to where the straightedge crosses the nose, then reported as the small inward offset from a straight line — not the trapezoid’s raw distance from the stringer — at a height partway up the fin base (4.5″ front, 4.25″ back). The center rear figure isn’t a standard quad fin — see the Rusty-quad note.' },
 
     { key:'quadMckee12', family:'Quad', name:'McKee ’12',
       blurb:'Interpolated from the June 2012 M4 Quattro / M5 Multisystem table, with pintail, narrow-tail and small-board corrections applied automatically.',
-      rows: row('Front &middot; off tail', fmtIn(m12.frontIn)) +
-        row('Back &middot; off tail', fmtIn(m12.backIn)) +
-        row('Back &middot; spread (tip-to-tip)', fmtIn(m12.spreadIn)) +
-        row('Back &middot; from stringer (one side)', fmtIn(m12.oneIn)) +
-        row('Thruster rear (M5) &middot; off tail', fmtIn(m12.thrIn)) +
-        row('Front &middot; toe (stringer at nose)', fmtIn(m12.toeFIn)) +
-        row('Back &middot; toe (stringer at nose)', fmtIn(m12.toeBIn)),
+      rows: (function(){
+        var frontA = lenIn - 12;
+        var frontB = tw/2 - 1.125;
+        var frontC = m12.toeFIn;
+        var frontToeIn = trapToeIn(frontA, frontB, frontC, 4.5);
+
+        var backA = lenIn - m12.backIn;
+        var backB = m12.oneIn;
+        var backC = m12.toeBIn;
+        var backToeIn = trapToeIn(backA, backB, backC, 4.25);
+
+        return row('Front &middot; off tail', fmtIn(m12.frontIn)) +
+          rowR('Front &middot; off rail', [1.125, 1.25]) +
+          rowText('Front &middot; toe in', fmtIn(frontToeIn)+'<span class="approx">4.5″ up the fin base</span>') +
+          row('Back &middot; off tail', fmtIn(m12.backIn)) +
+          row('Back &middot; from stringer (one side)', fmtIn(m12.oneIn)) +
+          rowText('Back &middot; toe in', fmtIn(backToeIn)+'<span class="approx">4.25″ up the fin base</span>') +
+          row('Thruster rear (M5) &middot; off tail', fmtIn(m12.thrIn));
+      })(),
       note: function(){
         var adj = [];
         if(m12.pin) adj.push('Pintail: back fins out '+fmtIn(0.5/2.54)+'.');
         if(m12.fwdIn > 0.001) adj.push('Narrow tail: cluster moved forward '+fmtIn(m12.fwdIn)+'.');
         if(m12.compIn > 0) adj.push('Small-board toe comp: +'+fmtIn(m12.compIn)+' at the nose.');
         return (adj.length ? adj.join(' ')+' ' : 'No fine-tuning adjustments triggered for this board. ') +
-          'The source table only publishes a from-stringer figure for the back pair — use it as a rough guide for the front pair too. M4 Quattro / M5 Multisystem, B.C. McKee (June 2012).';
+          'Toe in is solved as a right trapezoid running from the fin box up to where the straightedge crosses the nose (the M4/M5 table’s raw off-nose figure), then reported as the small inward offset from a straight, untoed line at a height partway up the fin base (4.5″ for the front pair, 4.25″ for the back pair) — adjust those heights if your fin templates use a different base length. M4 Quattro / M5 Multisystem, B.C. McKee (June 2012).';
       } },
 
     { key:'single', family:'Longboard', name:'Single',
       blurb:'½″ either side of 6″ off tail covers most longboard single-fin boxes.',
       rows: rowR('Center &middot; off tail', F.single.ct),
-      note:'Single-fin boxes are typically slotted, so this is a starting mark, not a fixed hole.' },
+      note:'Single-fin boxes are typically slotted, so this is a starting mark, not a fixed hole. Boxes commonly come in 8″ or 10.5″ lengths — center the mark within whichever you’re installing.' },
 
     { key:'twoPlusOne', family:'Longboard', name:'2 + 1',
       blurb:'A single-fin longboard base with a pair of small side-bites for extra hold and pivot.',
@@ -447,9 +527,352 @@
       blurb:'Two fins only, no center — off-tail comes from a sparse trendline, so sanity-check it on your own boards.',
       rows: row('Front &middot; off tail', fmtIn(F.twin.ft)) +
         rowR('Front &middot; off rail', F.twin.fr) +
-        rowR('Front &middot; toe', F.twin.toe),
-      note:'Twins commonly run a touch more toe than a thruster’s front pair (around ⅓″) to compensate for the missing center fin’s drive.' }
+        rowR('Front &middot; toe in', frange(0.125, 0.5, 1/16)),
+      note:'Twins commonly run more toe than a thruster’s front pair to compensate for the missing center fin’s drive. Fin-base length matters here: standard-style twin fins often run a 5″ base, while keel-style fins commonly use a 6.25″ base — a longer base needs the toe measured further up to mean the same thing, so confirm against your actual fin template.' }
     ];
+  }
+
+  /* ============ visualization: tail outline + fin dots ============ */
+  var TAIL_SHAPES = [
+    { key:'pin',        label:'Pin Tail' },
+    { key:'roundedpin',  label:'Rounded Pin' },
+    { key:'round',       label:'Round Tail' },
+    { key:'squash',      label:'Squash Tail' },
+    { key:'swallow',     label:'Swallow Tail' },
+    { key:'bat',         label:'Bat Tail' },
+    { key:'diamond',     label:'Diamond Tail' },
+    { key:'square',      label:'Square Tail' }
+  ];
+  var FIN_SETUPS = [
+    { key:'thrGeneric',  family:'Thruster',  name:'Generic' },
+    { key:'thrRusty',    family:'Thruster',  name:'Rusty' },
+    { key:'quadRusty',   family:'Quad',      name:'Rusty' },
+    { key:'quadMckee09', family:'Quad',      name:'McKee ’09' },
+    { key:'quadMckee12', family:'Quad',      name:'McKee ’12' },
+    { key:'single',      family:'Longboard', name:'Single' },
+    { key:'twoPlusOne',  family:'Longboard', name:'2 + 1' },
+    { key:'twin',        family:'Twin',      name:'Generic' }
+  ];
+  var tailKeyVal = 'round';
+  var finKeyVal = 'thrGeneric';
+
+  /* Fixed vertical window — always shows the back ~17″ of the board at a
+     true, uniform inches-to-pixels scale (same scale in x and y, so nothing
+     is stretched). The outline's WIDTH tracks the real tail-width slider —
+     that's what keeps "off rail" brackets honestly close to the rail
+     instead of floating in generic space. */
+  var TAIL_TOP_Y = 17;
+  var TAIL_SHOULDER_Y = 3;
+  var TAIL_FLARE = 1.6; // how much wider the outline gets from the shoulder up to the top of the view
+  function railGeom(tw){
+    var hw = tw/2;
+    return { hw: hw, hwTop: hw + TAIL_FLARE };
+  }
+
+  /* Bottom-of-tail profile for each named shape, running from the right
+     shoulder (hw, 3) to the left shoulder (-hw, 3). Every shape shares the
+     same straight rail taper above y=3 — only this bottom stretch differs. */
+  function bottomPathD(shape, hw, PX, PY){
+    switch(shape){
+      case 'square':
+        return ' L'+PX(hw)+','+PY(0)+' L'+PX(-hw)+','+PY(0)+' L'+PX(-hw)+','+PY(3);
+      case 'round':
+        return ' C'+PX(hw)+','+PY(1.4)+' '+PX(hw*0.55)+','+PY(0)+' '+PX(0)+','+PY(0)+
+               ' C'+PX(-hw*0.55)+','+PY(0)+' '+PX(-hw)+','+PY(1.4)+' '+PX(-hw)+','+PY(3);
+      case 'squash':
+        return ' C'+PX(hw)+','+PY(1.6)+' '+PX(hw*0.9)+','+PY(0.55)+' '+PX(hw*0.62)+','+PY(0.4)+
+               ' L'+PX(-hw*0.62)+','+PY(0.4)+
+               ' C'+PX(-hw*0.9)+','+PY(0.55)+' '+PX(-hw)+','+PY(1.6)+' '+PX(-hw)+','+PY(3);
+      case 'pin':
+        return ' C'+PX(hw)+','+PY(1.6)+' '+PX(hw*0.28)+','+PY(0)+' '+PX(0)+','+PY(0)+
+               ' C'+PX(-hw*0.28)+','+PY(0)+' '+PX(-hw)+','+PY(1.6)+' '+PX(-hw)+','+PY(3);
+      case 'roundedpin':
+        return ' C'+PX(hw)+','+PY(1.6)+' '+PX(hw*0.32)+','+PY(0.15)+' '+PX(hw*0.11)+','+PY(0.1)+
+               ' Q'+PX(0)+','+PY(0.04)+' '+PX(-hw*0.11)+','+PY(0.1)+
+               ' C'+PX(-hw*0.32)+','+PY(0.15)+' '+PX(-hw)+','+PY(1.6)+' '+PX(-hw)+','+PY(3);
+      case 'diamond':
+        return ' L'+PX(0)+','+PY(0.7)+' L'+PX(-hw)+','+PY(3);
+      case 'swallow': {
+        var tipX = hw*0.6;
+        return ' C'+PX(hw)+','+PY(1.7)+' '+PX(hw*0.85)+','+PY(0.4)+' '+PX(tipX)+','+PY(0)+
+               ' L'+PX(0)+','+PY(1.9)+
+               ' L'+PX(-tipX)+','+PY(0)+
+               ' C'+PX(-hw*0.85)+','+PY(0.4)+' '+PX(-hw)+','+PY(1.7)+' '+PX(-hw)+','+PY(3);
+      }
+      case 'bat': {
+        var wingX = hw*0.92, tipX2 = hw*0.42;
+        return ' C'+PX(hw)+','+PY(1.7)+' '+PX(wingX)+','+PY(1.05)+' '+PX(wingX)+','+PY(0.85)+
+               ' C'+PX(wingX)+','+PY(0.55)+' '+PX(tipX2*1.15)+','+PY(0.2)+' '+PX(tipX2)+','+PY(0)+
+               ' L'+PX(0)+','+PY(1.35)+
+               ' L'+PX(-tipX2)+','+PY(0)+
+               ' C'+PX(-tipX2*1.15)+','+PY(0.2)+' '+PX(-wingX)+','+PY(0.55)+' '+PX(-wingX)+','+PY(0.85)+
+               ' C'+PX(-wingX)+','+PY(1.05)+' '+PX(-hw)+','+PY(1.7)+' '+PX(-hw)+','+PY(3);
+      }
+      default:
+        return ' L'+PX(-hw)+','+PY(3);
+    }
+  }
+
+  /* Straight-line rail from the top of the view down to the shoulder, then
+     the shape-specific bottom, then back up the other rail. Open path (no
+     top edge) so it reads as a cropped view of the tail, like the reference. */
+  function outlineD(shape, geom, PX, PY){
+    var d = 'M'+PX(geom.hwTop).toFixed(1)+','+PY(TAIL_TOP_Y).toFixed(1);
+    d += ' L'+PX(geom.hw).toFixed(1)+','+PY(TAIL_SHOULDER_Y).toFixed(1);
+    d += bottomPathD(shape, geom.hw, PX, PY);
+    d += ' L'+PX(-geom.hwTop).toFixed(1)+','+PY(TAIL_TOP_Y).toFixed(1);
+    return d;
+  }
+
+  function tailThumbSVG(shape){
+    var geom = railGeom(15.5); // illustrative width for the picker icon only
+    var S = 4.6, padX = 8, padY = 6;
+    var W = padX*2 + geom.hwTop*2*S, H = padY*2 + TAIL_TOP_Y*S;
+    function PX(x){ return padX + (geom.hwTop+x)*S; }
+    function PY(y){ return H - padY - y*S; }
+    return '<svg class="thumb-svg" viewBox="0 0 '+W.toFixed(1)+' '+H.toFixed(1)+'" aria-hidden="true">'+
+      '<line x1="'+PX(0).toFixed(1)+'" y1="'+PY(TAIL_TOP_Y).toFixed(1)+'" x2="'+PX(0).toFixed(1)+'" y2="'+PY(0.6).toFixed(1)+
+      '" stroke="var(--accent)" stroke-width="1.5" opacity=".55"/>'+
+      '<path d="'+outlineD(shape, geom, PX, PY)+'" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg>';
+  }
+
+  /* Rail x-position at a given height, used to anchor "off rail" brackets —
+     straight-line taper matching the outline's real, tail-width-driven
+     rail geometry, so the bracket sits honestly close to the rail. */
+  function railXAt(y, geom){
+    if(y <= TAIL_SHOULDER_Y) return geom.hw;
+    var t = Math.min((y-TAIL_SHOULDER_Y)/(TAIL_TOP_Y-TAIL_SHOULDER_Y), 1);
+    return geom.hw + (geom.hwTop-geom.hw)*t;
+  }
+
+  /* Each fin = 2 dots (base box position + toed tip, 4.5″/4.25″/5″ up the
+     fin base) joined by a line, per the reference drawing. Paired fins
+     (front/back/side-bite) mirror left/right; a lone center fin sits on the
+     stringer with its tip directly above (no toe). refType picks whether
+     the "off rail" bracket anchors to the rail or to the stringer.
+
+     "Off rail" numbers are a distance IN FROM THE RAIL, not from the
+     stringer — plotting them straight as an x-coordinate would put the fin
+     near the centerline instead of near the edge. So for refType:'rail'
+     entries, railToX() converts that raw off-rail inches into a true
+     stringer-distance using the real rail position at that fin's height. */
+  function finLayout(key, F, m12, tw, lenIn){
+    var geom = railGeom(tw);
+    function railToX(offRail, y){ return railXAt(y, geom) - offRail; }
+
+    switch(key){
+      case 'thrGeneric': {
+        var frOff = mid(F.thrusterGeneric.fr), toeV = mid(F.thrusterGeneric.toe);
+        var y = F.thrusterGeneric.ft;
+        return [
+          { role:'front', mirror:true, x:railToX(frOff,y), y:y, toe:toeV, finBase:4.5, refType:'rail',
+            dimLabel:'FRONT OFF TAIL', railLabel:'FRONT OFF RAIL', railVal:frOff, toeLabel:'FRONT TOE IN' },
+          { role:'center', mirror:false, x:0, y:F.thrusterGeneric.ct, toe:null, finBase:3, dimLabel:'CENTER OFF TAIL' }
+        ];
+      }
+      case 'thrRusty': {
+        var toeV = mid([0.125,0.25]);
+        var y = F.thrusterRusty.ft;
+        return [
+          { role:'front', mirror:true, x:railToX(F.thrusterRusty.fr,y), y:y, toe:toeV, finBase:4.5, refType:'rail',
+            dimLabel:'FRONT OFF TAIL', railLabel:'FRONT OFF RAIL', railVal:F.thrusterRusty.fr, toeLabel:'FRONT TOE IN' },
+          { role:'center', mirror:false, x:0, y:F.thrusterRusty.ct, toe:null, finBase:3, dimLabel:'CENTER OFF TAIL' }
+        ];
+      }
+      case 'quadRusty': {
+        var frontToe = mid([0.125,0.25]), backToe = mid([0.0625,0.1875]);
+        var fy = F.quadRusty.ft, by = F.quadRusty.bt;
+        return [
+          { role:'front', mirror:true, x:railToX(F.quadRusty.fr,fy), y:fy, toe:frontToe, finBase:4.5, refType:'rail',
+            dimLabel:'FRONT OFF TAIL', railLabel:'FRONT OFF RAIL', railVal:F.quadRusty.fr, toeLabel:'FRONT TOE IN' },
+          { role:'back', mirror:true, x:railToX(F.quadRusty.br,by), y:by, toe:backToe, finBase:4.25, refType:'rail',
+            dimLabel:'BACK OFF TAIL', railLabel:'BACK OFF RAIL', railVal:F.quadRusty.br, toeLabel:'BACK TOE IN' },
+          { role:'center', mirror:false, x:0, y:F.quadRusty.ct, toe:null, finBase:3, dimLabel:'REAR OFF TAIL' }
+        ];
+      }
+      case 'quadMckee09': {
+        var backOneSide = F.quadMckee.bs / 2;
+        var frontA = lenIn - 12, frontB = tw/2 - 1.125, frontC = F.quadMckee.toe;
+        var frontToeIn = trapToeIn(frontA, frontB, frontC, 4.5);
+        var backA = lenIn - F.quadMckee.bt, backB = backOneSide, backC = F.quadMckee.btoe;
+        var backToeIn = trapToeIn(backA, backB, backC, 4.25);
+        var frontY = lenIn < 84 ? F.quadMckee.ft2 : F.quadMckee.ft1;
+        return [
+          { role:'front', mirror:true, x:railToX(F.quadMckee.fr,frontY), y:frontY, toe:frontToeIn, finBase:4.5, refType:'rail',
+            dimLabel:'FRONT OFF TAIL', railLabel:'FRONT OFF RAIL', railVal:F.quadMckee.fr, toeLabel:'FRONT TOE IN' },
+          { role:'back', mirror:true, x:backOneSide, y:F.quadMckee.bt, toe:backToeIn, finBase:4.25, refType:'stringer',
+            dimLabel:'BACK OFF TAIL', railLabel:'BACK SPREAD FROM STRINGER, ONE SIDE', railVal:backOneSide, toeLabel:'BACK TOE IN' },
+          { role:'center', mirror:false, x:0, y:F.quadMckee.ct, toe:null, finBase:3, dimLabel:'REAR OFF TAIL' }
+        ];
+      }
+      case 'quadMckee12': {
+        var frontA = lenIn - 12, frontB = tw/2 - 1.125, frontC = m12.toeFIn;
+        var frontToeIn = trapToeIn(frontA, frontB, frontC, 4.5);
+        var backA = lenIn - m12.backIn, backB = m12.oneIn, backC = m12.toeBIn;
+        var backToeIn = trapToeIn(backA, backB, backC, 4.25);
+        var frontOffRail = mid([1.125, 1.25]), fy = m12.frontIn;
+        return [
+          { role:'front', mirror:true, x:railToX(frontOffRail,fy), y:fy, toe:frontToeIn, finBase:4.5, refType:'rail',
+            dimLabel:'FRONT OFF TAIL', railLabel:'FRONT OFF RAIL', railVal:frontOffRail, toeLabel:'FRONT TOE IN' },
+          { role:'back', mirror:true, x:m12.oneIn, y:m12.backIn, toe:backToeIn, finBase:4.25, refType:'stringer',
+            dimLabel:'BACK OFF TAIL', railLabel:'BACK SPREAD FROM STRINGER, ONE SIDE', railVal:m12.oneIn, toeLabel:'BACK TOE IN' },
+          { role:'center', mirror:false, x:0, y:m12.thrIn, toe:null, finBase:3, dimLabel:'REAR (M5) OFF TAIL' }
+        ];
+      }
+      case 'single':
+        return [ { role:'center', mirror:false, x:0, y:mid(F.single.ct), toe:null, finBase:3, dimLabel:'CENTER OFF TAIL' } ];
+      case 'twoPlusOne': {
+        var toeV = mid(F.twoPlusOne.toe);
+        var y = F.twoPlusOne.ft;
+        return [
+          { role:'sidebite', mirror:true, x:railToX(F.twoPlusOne.fr,y), y:y, toe:toeV, finBase:4.5, refType:'rail',
+            dimLabel:'SIDE-BITE OFF TAIL', railLabel:'SIDE-BITE OFF RAIL', railVal:F.twoPlusOne.fr, toeLabel:'SIDE-BITE TOE IN' },
+          { role:'center', mirror:false, x:0, y:mid(F.twoPlusOne.ct), toe:null, finBase:3, dimLabel:'CENTER OFF TAIL' }
+        ];
+      }
+      case 'twin': {
+        var frOff = mid(F.twin.fr), y = F.twin.ft;
+        return [ { role:'front', mirror:true, x:railToX(frOff,y), y:y, toe:mid(frange(0.125, 0.5, 1/16)), finBase:5, refType:'rail',
+          dimLabel:'FRONT OFF TAIL', railLabel:'FRONT OFF RAIL', railVal:frOff, toeLabel:'FRONT TOE IN' } ];
+      }
+      default:
+        return [];
+    }
+  }
+
+  function buildVizSVG(shape, key, F, m12, tw, lenIn){
+    var fins = finLayout(key, F, m12, tw, lenIn).filter(function(f){ return !isNaN(f.y); });
+    var geom = railGeom(tw); // real tail-width-driven rail geometry — true to scale
+    var S = 18; // fixed px/inch, same in x and y — the frame itself never resizes
+    var maxY = TAIL_TOP_Y;
+
+    var xCandidates = [geom.hwTop];
+    fins.forEach(function(f){
+      xCandidates.push(Math.abs(f.x));
+      if(f.toe) xCandidates.push(Math.abs(f.x - f.toe));
+      if(f.refType==='rail') xCandidates.push(railXAt(Math.min(f.y, maxY), geom));
+    });
+    var maxX = Math.max.apply(null, xCandidates) + 2.4;
+
+    var padL = 96, padR = 46, padTop = 30, padBot = 40;
+    var W = padL+padR+maxX*2*S, H = padTop+padBot+maxY*S;
+    function PX(x){ return padL + (maxX+x)*S; }
+    function PY(y){ return H - padBot - y*S; }
+
+    function tickV(x, y, lenIn2){
+      return '<line class="tick" x1="'+PX(x).toFixed(1)+'" y1="'+PY(y-lenIn2/2).toFixed(1)+'" x2="'+PX(x).toFixed(1)+'" y2="'+PY(y+lenIn2/2).toFixed(1)+'"/>';
+    }
+    function bracketH(x1, x2, y){
+      return '<line class="bracket" x1="'+PX(x1).toFixed(1)+'" y1="'+PY(y).toFixed(1)+'" x2="'+PX(x2).toFixed(1)+'" y2="'+PY(y).toFixed(1)+'"/>'+
+        tickV(x1,y,0.6) + tickV(x2,y,0.6);
+    }
+    function label(x, y, text, anchor){
+      return '<text class="axislab" x="'+PX(x).toFixed(1)+'" y="'+PY(y).toFixed(1)+'" text-anchor="'+(anchor||'middle')+'">'+text+'</text>';
+    }
+    function dot(x, y){
+      return '<circle class="fdot" cx="'+PX(x).toFixed(1)+'" cy="'+PY(y).toFixed(1)+'" r="6"/>';
+    }
+    function tie(x1,y1,x2,y2){
+      return '<line class="tie" x1="'+PX(x1).toFixed(1)+'" y1="'+PY(y1).toFixed(1)+'" x2="'+PX(x2).toFixed(1)+'" y2="'+PY(y2).toFixed(1)+'"/>';
+    }
+
+    var parts = [];
+    parts.push('<path class="outline-glow" d="'+outlineD(shape, geom, PX, PY)+'"/>');
+    parts.push('<path class="outline" d="'+outlineD(shape, geom, PX, PY)+'"/>');
+    parts.push('<line class="stringer" x1="'+PX(0).toFixed(1)+'" y1="'+PY(0.6).toFixed(1)+'" x2="'+PX(0).toFixed(1)+'" y2="'+PY(maxY).toFixed(1)+'"/>');
+    parts.push(label(0.35, maxY-0.5, 'STRINGER', 'start'));
+    parts.push(label(0, -0.55, 'TAIL'));
+
+    fins.forEach(function(f){
+      var clampShift = Math.max(0, (f.y + f.finBase) - (maxY-0.5));
+      var baseY = f.y - clampShift, tipY = f.y + f.finBase - clampShift;
+      var clamped = clampShift > 0.001;
+
+      // off-tail dashed reference line + label, full width, drawn once per fin group
+      parts.push('<line class="guide" x1="'+PX(-maxX).toFixed(1)+'" y1="'+PY(baseY).toFixed(1)+'" x2="'+PX(maxX).toFixed(1)+'" y2="'+PY(baseY).toFixed(1)+'"/>');
+      parts.push(label(0.4, baseY+0.28, f.dimLabel+' &middot; '+fmtIn(f.y)+(clamped?' ↑':''), 'start'));
+
+      if(!f.mirror){
+        // center fin: two dots straight up the stringer, no toe
+        parts.push(tie(0,baseY,0,tipY));
+        parts.push(dot(0,baseY));
+        parts.push(dot(0,tipY));
+        return;
+      }
+
+      var toeDelta = f.toe || 0;
+      var leftBaseX = -f.x, leftTipX = -(f.x-toeDelta);
+      var rightBaseX = f.x, rightTipX = (f.x-toeDelta);
+      var railAnchor = f.refType==='rail' ? -railXAt(Math.min(f.y,maxY), geom) : 0;
+
+      // annotated (left) side: off-rail/from-stringer bracket
+      parts.push(bracketH(railAnchor, leftBaseX, baseY));
+      parts.push(label((railAnchor+leftBaseX)/2, baseY-0.55, f.railLabel+' &middot; '+fmtIn(Math.abs(f.x))));
+
+      // annotated (left) side: toe-in bracket + fin-base vertical dimension
+      parts.push('<line class="guide" x1="'+PX(leftBaseX).toFixed(1)+'" y1="'+PY(baseY).toFixed(1)+'" x2="'+PX(leftBaseX).toFixed(1)+'" y2="'+PY(tipY).toFixed(1)+'"/>');
+      parts.push(bracketH(leftBaseX, leftTipX, tipY));
+      parts.push(label((leftBaseX+leftTipX)/2, tipY+0.55, f.toeLabel+' &middot; '+fmtIn(toeDelta)));
+      parts.push(label(leftBaseX-0.35, (baseY+tipY)/2, fmtIn(f.finBase)+' base', 'end'));
+
+      // both sides: the fin itself — base dot, toed tip dot, connecting line
+      parts.push(tie(leftBaseX,baseY,leftTipX,tipY));
+      parts.push(tie(rightBaseX,baseY,rightTipX,tipY));
+      parts.push(dot(leftBaseX,baseY)); parts.push(dot(leftTipX,tipY));
+      parts.push(dot(rightBaseX,baseY)); parts.push(dot(rightTipX,tipY));
+    });
+
+    return '<svg class="viz-svg" viewBox="0 0 '+W.toFixed(1)+' '+H.toFixed(1)+'" width="'+W.toFixed(0)+'" height="'+H.toFixed(0)+
+      '" role="img" aria-label="'+shape+' tail with fin boxes plotted">'+parts.join('')+'</svg>';
+  }
+
+  function renderTailSelector(){
+    var box = document.getElementById('tailsel');
+    box.innerHTML = TAIL_SHAPES.map(function(s){
+      return '<button type="button" role="radio" aria-checked="'+(s.key===tailKeyVal)+'" data-key="'+s.key+'" class="'+(s.key===tailKeyVal?'on':'')+'">'+
+        tailThumbSVG(s.key)+'<span>'+s.label+'</span></button>';
+    }).join('');
+    box.addEventListener('click', function(e){
+      var b = e.target.closest('button');
+      if(!b) return;
+      tailKeyVal = b.getAttribute('data-key');
+      Array.prototype.forEach.call(box.querySelectorAll('button'), function(x){
+        var on = x===b; x.classList.toggle('on', on); x.setAttribute('aria-checked', on);
+      });
+      renderViz();
+    });
+  }
+
+  function renderFinSelector(){
+    var box = document.getElementById('finsel');
+    box.innerHTML = FIN_SETUPS.map(function(s){
+      return '<button type="button" role="radio" aria-checked="'+(s.key===finKeyVal)+'" data-key="'+s.key+'" class="'+(s.key===finKeyVal?'on':'')+'">'+
+        '<span class="fam">'+s.family+'</span>'+s.name+'</button>';
+    }).join('');
+    box.addEventListener('click', function(e){
+      var b = e.target.closest('button');
+      if(!b) return;
+      finKeyVal = b.getAttribute('data-key');
+      Array.prototype.forEach.call(box.querySelectorAll('button'), function(x){
+        var on = x===b; x.classList.toggle('on', on); x.setAttribute('aria-checked', on);
+      });
+      renderViz();
+    });
+  }
+
+  function renderViz(){
+    var lenIn = parseFloat(document.getElementById('len').value);
+    var tw = parseFloat(document.getElementById('tail').value);
+    var F = computeFins(lenIn, tw);
+    var m12 = computeMckee2012(lenIn, tw, shapeVal);
+    var tailMeta = TAIL_SHAPES.filter(function(s){ return s.key===tailKeyVal; })[0];
+    var finMeta = FIN_SETUPS.filter(function(s){ return s.key===finKeyVal; })[0];
+
+    document.getElementById('viz-out').innerHTML =
+      '<div class="viz-head"><span><b>'+tailMeta.label+'</b> &middot; '+finMeta.family+' — '+finMeta.name+'</span>'+
+      '<span>Board '+ftIn(lenIn)+'   ·   Tail width '+fmtIn(tw)+'</span></div>'+
+      '<p class="viz-cap">Drawn to true scale, same inches-per-pixel in both directions: the outline’s width tracks your actual tail-width slider (it flares a couple inches wider toward the top of the ~17″ window shown, since a board keeps widening past the tail-width station), so the off-rail bracket sits honestly close to the rail rather than floating in generic space. Each fin is two dots: the box position (on the dashed off-tail line) and its toed tip, partway up the fin base, joined by a line. The bracket below the box gives off-rail (or from-stringer) distance; the bracket above the tip gives toe in, both labeled with your board’s actual numbers. Only the left-hand fin in each pair carries the full bracket callouts — the mirrored fin on the right is the same dimensions. Center fins sit on the stringer with no toe.</p>'+
+      buildVizSVG(tailKeyVal, finKeyVal, F, m12, tw, lenIn);
   }
 
   /* ============ render ============ */
@@ -470,7 +893,7 @@
 
     var F = computeFins(lenIn, tw);
     var m12 = computeMckee2012(lenIn, tw, shapeVal);
-    var setups = buildSetups(F, m12, tw);
+    var setups = buildSetups(F, m12, tw, lenIn);
 
     document.getElementById('fin-out').innerHTML = setups.map(finCard).join('');
   }
@@ -483,6 +906,7 @@
     shapeVal = b.getAttribute('data-val');
     Array.prototype.forEach.call(seg.querySelectorAll('button'), function(x){ x.classList.toggle('on', x===b); });
     renderFins();
+    renderViz();
   });
 
   var units = document.getElementById('units');
@@ -492,11 +916,15 @@
     unitMode = b.getAttribute('data-val');
     Array.prototype.forEach.call(units.querySelectorAll('button'), function(x){ x.classList.toggle('on', x===b); });
     renderFins();
+    renderViz();
   });
 
-  ['len','tail'].forEach(function(id){ document.getElementById(id).addEventListener('input', renderFins); });
+  ['len','tail'].forEach(function(id){ document.getElementById(id).addEventListener('input', function(){ renderFins(); renderViz(); }); });
 
   renderFins();
+  renderTailSelector();
+  renderFinSelector();
+  renderViz();
 })();
 </script>
 </body>
