@@ -5,3 +5,5 @@
 - [Surfboard Design Theory](Surfboard%20Design%20Theory.gdoc)
 - [Surfboard Shaping Checklist](Surfboard%20Shaping%20Checklist.gdoc)
 - [Fin Placement Calculator](fin-placement-calculator.html)
+- [New Fin Placement Calculator](SurfboardFinPlacementCalculator_v0.1.html)
+
